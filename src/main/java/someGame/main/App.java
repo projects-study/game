@@ -1,4 +1,4 @@
-package civilization.app;
+package someGame.main;
 
 import javax.swing.JFrame;
 
