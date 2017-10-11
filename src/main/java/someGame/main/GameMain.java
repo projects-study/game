@@ -1,5 +1,6 @@
 package someGame.main;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -7,8 +8,14 @@ import java.awt.RenderingHints;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.swing.JPanel;
+
+import someGame.player.MoveDir;
+import someGame.player.Player;
 
 public class GameMain extends JPanel implements Runnable, KeyListener {
 
@@ -23,8 +30,12 @@ public class GameMain extends JPanel implements Runnable, KeyListener {
 	private BufferedImage image;
 	private Graphics2D g;
 
-	private int FPS = 60;
+	private final int FPS = 60;
 	private double averageFPS;
+
+	private Player player1;
+	private Player player2;
+	private Set<Integer> keyEvents;
 
 	public GameMain() {
 		super();
@@ -42,6 +53,15 @@ public class GameMain extends JPanel implements Runnable, KeyListener {
 	}
 
 	public void init() {
+		player1 = new Player();
+		player1.setX(200);
+		player1.setY(500);
+		player1.setColor(Color.ORANGE);
+		player2 = new Player();
+		player2.setX(200);
+		player2.setY(500);
+		player2.setColor(Color.BLUE);
+		keyEvents = new LinkedHashSet<>();
 		this.addKeyListener(this);
 	}
 
@@ -84,6 +104,9 @@ public class GameMain extends JPanel implements Runnable, KeyListener {
 	}
 
 	private synchronized void gameUpdate() {
+		updateKeys();
+		player1.update();
+		player2.update();
 	}
 
 	private synchronized void gameDraw() {
@@ -93,24 +116,50 @@ public class GameMain extends JPanel implements Runnable, KeyListener {
 	}
 
 	private synchronized void gameRender() {
+		g.setColor(Color.BLACK);
+		g.fillRect(0, 0, WIDTH, HEIGHT);
+		player1.render(g);
+		player2.render(g);
 	}
 
 	@Override
-	public synchronized void keyPressed(KeyEvent arg0) {
-		// TODO Auto-generated method stub
-		
+	public synchronized void keyPressed(KeyEvent e) {
+		keyEvents.add(e.getKeyCode());
 	}
 
 	@Override
 	public synchronized void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		keyEvents.remove(e.getKeyCode());
 	}
 
 	@Override
 	public synchronized void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		keyPressed(e);
+	}
+	
+	private void updateKeys(){
+		if(keyEvents.stream().filter(e -> e == KeyEvent.VK_RIGHT || e == KeyEvent.VK_LEFT || e == KeyEvent.VK_UP || e == KeyEvent.VK_DOWN).collect(Collectors.toList()).isEmpty())
+			player1.setMove(MoveDir.NONE);
+		if(keyEvents.stream().filter(e -> e == KeyEvent.VK_D || e == KeyEvent.VK_A || e == KeyEvent.VK_W || e == KeyEvent.VK_S).collect(Collectors.toList()).isEmpty())
+			player2.setMove(MoveDir.NONE);
+		keyEvents.forEach(e -> {
+			if(e == KeyEvent.VK_RIGHT)
+				player1.setMove(MoveDir.RIGHT);
+			if(e == KeyEvent.VK_LEFT)
+				player1.setMove(MoveDir.LEFT);
+			if(e == KeyEvent.VK_UP)
+				player1.setMove(MoveDir.UP);
+			if(e == KeyEvent.VK_DOWN)
+				player1.setMove(MoveDir.DOWN);
+			if(e == KeyEvent.VK_D)
+				player2.setMove(MoveDir.RIGHT);
+			if(e == KeyEvent.VK_A)
+				player2.setMove(MoveDir.LEFT);
+			if(e == KeyEvent.VK_W)
+				player2.setMove(MoveDir.UP);
+			if(e == KeyEvent.VK_S)
+				player2.setMove(MoveDir.DOWN);
+		});
 	}
 
 }
