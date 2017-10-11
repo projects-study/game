@@ -34,7 +34,6 @@ public class GameMain extends JPanel implements Runnable, KeyListener {
 	private double averageFPS;
 
 	private Player player1;
-	private Player player2;
 	private Set<Integer> keyEvents;
 
 	public GameMain() {
@@ -57,10 +56,6 @@ public class GameMain extends JPanel implements Runnable, KeyListener {
 		player1.setX(200);
 		player1.setY(500);
 		player1.setColor(Color.ORANGE);
-		player2 = new Player();
-		player2.setX(200);
-		player2.setY(500);
-		player2.setColor(Color.BLUE);
 		keyEvents = new LinkedHashSet<>();
 		this.addKeyListener(this);
 	}
@@ -106,7 +101,6 @@ public class GameMain extends JPanel implements Runnable, KeyListener {
 	private synchronized void gameUpdate() {
 		updateKeys();
 		player1.update();
-		player2.update();
 	}
 
 	private synchronized void gameDraw() {
@@ -119,7 +113,6 @@ public class GameMain extends JPanel implements Runnable, KeyListener {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, WIDTH, HEIGHT);
 		player1.render(g);
-		player2.render(g);
 	}
 
 	@Override
@@ -140,8 +133,6 @@ public class GameMain extends JPanel implements Runnable, KeyListener {
 	private void updateKeys(){
 		if(keyEvents.stream().filter(e -> e == KeyEvent.VK_RIGHT || e == KeyEvent.VK_LEFT || e == KeyEvent.VK_UP || e == KeyEvent.VK_DOWN).collect(Collectors.toList()).isEmpty())
 			player1.setMove(MoveDir.NONE);
-		if(keyEvents.stream().filter(e -> e == KeyEvent.VK_D || e == KeyEvent.VK_A || e == KeyEvent.VK_W || e == KeyEvent.VK_S).collect(Collectors.toList()).isEmpty())
-			player2.setMove(MoveDir.NONE);
 		keyEvents.forEach(e -> {
 			if(e == KeyEvent.VK_RIGHT)
 				player1.setMove(MoveDir.RIGHT);
@@ -151,14 +142,6 @@ public class GameMain extends JPanel implements Runnable, KeyListener {
 				player1.setMove(MoveDir.UP);
 			if(e == KeyEvent.VK_DOWN)
 				player1.setMove(MoveDir.DOWN);
-			if(e == KeyEvent.VK_D)
-				player2.setMove(MoveDir.RIGHT);
-			if(e == KeyEvent.VK_A)
-				player2.setMove(MoveDir.LEFT);
-			if(e == KeyEvent.VK_W)
-				player2.setMove(MoveDir.UP);
-			if(e == KeyEvent.VK_S)
-				player2.setMove(MoveDir.DOWN);
 		});
 	}
 
