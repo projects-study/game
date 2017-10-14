@@ -1,7 +1,7 @@
-package someGame.main;
+package saveYourLife.main;
 
-import someGame.listener.mouse.MouseListener;
-import someGame.model.map.Map;
+import saveYourLife.listener.mouse.MouseListener;
+import saveYourLife.model.map.Level;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -30,7 +30,7 @@ public class GameMain extends JPanel implements Runnable {
     private final int FPS = 60;
     private double averageFPS;
 
-    private Map map;
+    private Level level;
 
     private GameMain() {
         super();
@@ -52,7 +52,7 @@ public class GameMain extends JPanel implements Runnable {
     }
 
     public void init() {
-        map = Map.getInstance();
+        level = Level.getInstance();
         this.addMouseListener(new MouseListener());
     }
 
@@ -105,7 +105,7 @@ public class GameMain extends JPanel implements Runnable {
     private synchronized void gameRender() {
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, WIDTH, HEIGHT);
-        map.draw(g);
+        level.draw(g);
     }
 
 

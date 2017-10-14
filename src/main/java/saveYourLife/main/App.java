@@ -1,4 +1,4 @@
-package someGame.main;
+package saveYourLife.main;
 
 import javax.swing.JFrame;
 

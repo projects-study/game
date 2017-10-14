@@ -1,4 +1,4 @@
-package someGame.image;
+package saveYourLife.image;
 
 public class ImageFactory {
 

@@ -1,4 +1,4 @@
-package someGame.model;
+package saveYourLife.model;
 
 public enum Tower {
     FIRST(1);

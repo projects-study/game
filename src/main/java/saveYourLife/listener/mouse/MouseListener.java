@@ -1,4 +1,4 @@
-package someGame.listener.mouse;
+package saveYourLife.listener.mouse;
 
 import java.awt.event.MouseEvent;
 
