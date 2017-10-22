@@ -1,16 +1,12 @@
 package saveYourLife.main;
 
 import saveYourLife.listener.mouse.MouseListener;
-import saveYourLife.model.map.Level;
+import saveYourLife.loader.LevelFactory;
+import saveYourLife.model.level.Level;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
-
-import javax.swing.JPanel;
 
 public class GameMain extends JPanel implements Runnable {
 
@@ -52,7 +48,7 @@ public class GameMain extends JPanel implements Runnable {
     }
 
     public void init() {
-        level = Level.getInstance();
+        level = LevelFactory.loadLevel();
         this.addMouseListener(new MouseListener());
     }
 
@@ -94,6 +90,7 @@ public class GameMain extends JPanel implements Runnable {
     }
 
     private synchronized void gameUpdate() {
+        level.update();
     }
 
     private synchronized void gameDraw() {

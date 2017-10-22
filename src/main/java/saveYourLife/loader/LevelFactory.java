@@ -1,10 +1,12 @@
 package saveYourLife.loader;
 
-import saveYourLife.model.map.Area;
+import saveYourLife.model.level.Level;
 
 import java.io.File;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 import java.util.stream.IntStream;
 
 public class LevelFactory {
@@ -19,14 +21,10 @@ public class LevelFactory {
         IntStream.range(1, countLevels + 1).forEach(i -> levels.put(i, false));
     }
 
-    public static Area[][] loadLevel() {
-        System.out.println("size " + levels.keySet().size());
+    public static Level loadLevel() {
         int rand = random.nextInt(levels.keySet().size());
-        System.out.println("rand " + rand);
         int level = new ArrayList<>(levels.keySet()).get(rand);
         levels.remove(level);
-        System.out.println("level " + level);
-        System.out.println("rest levels: " + levels.size());
         return FileLoader.loadLevel(level);
     }
 

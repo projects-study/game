@@ -1,4 +1,4 @@
-package saveYourLife.model.map;
+package saveYourLife.model.level;
 
 import java.awt.*;
 
@@ -10,11 +10,11 @@ public class Area {
         this.type = type;
     }
 
-    public void draw(Graphics2D g, int x, int y){
+    public void draw(Graphics2D g, int x, int y) {
         g.setColor(Color.BLACK);
         g.fillRect(x, y, 50, 50);
         g.setColor(Color.white);
-        g.fillRect(x+1, y+1, 48, 48);
+        g.fillRect(x + 1, y + 1, 48, 48);
         g.setColor(Color.BLACK);
         g.drawString("" + type, x + 10, y + 20);
     }
