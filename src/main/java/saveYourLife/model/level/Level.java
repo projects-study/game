@@ -127,7 +127,6 @@ public class Level {
     public void update() {
         startNewWave();
         startNextSquad();
-        System.out.println(runningEnemies.size());
     }
 
     private void startNewWave() {

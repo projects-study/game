@@ -1,8 +1,15 @@
 package saveYourLife.model.level;
 
+import saveYourLife.image.ImageFactory;
+
 import java.awt.*;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
 
 public class Area {
+
+    private ImageFactory imageFactory = ImageFactory.getInstance();
 
     private int type;
 
@@ -11,12 +18,13 @@ public class Area {
     }
 
     public void draw(Graphics2D g, int x, int y) {
-        g.setColor(Color.BLACK);
-        g.fillRect(x, y, 50, 50);
-        g.setColor(Color.white);
-        g.fillRect(x + 1, y + 1, 48, 48);
-        g.setColor(Color.BLACK);
-        g.drawString("" + type, x + 10, y + 20);
+        BufferedImage img = imageFactory.getImage(type);
+//        int angle = 90;
+//        double rotationRequired = Math.toRadians (angle);
+//        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, 25, 25);
+//        AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
+//        g.drawImage(op.filter(img, null), x, y, null);
+        g.drawImage(img, x, y, null);
     }
 
     public void setType(int type) {
