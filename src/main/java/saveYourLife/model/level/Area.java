@@ -6,6 +6,8 @@ import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
+import java.util.function.BooleanSupplier;
+import java.util.function.Predicate;
 
 public class Area {
 
@@ -13,6 +15,14 @@ public class Area {
 
     private int type;
     private int[] center;
+
+    public BooleanSupplier isStartArea = () -> type >=0 && type <=99;
+
+    public BooleanSupplier isFinishArea = () -> type >=100 && type <=199;
+
+    public BooleanSupplier isTowerArea = () -> type >=200 && type <=299;
+
+    public BooleanSupplier isRoadArea = () -> type >=300 && type <=399;
 
     public Area(int type, int x, int y) {
         this.type = type;
@@ -43,4 +53,5 @@ public class Area {
     public void setCenter(int[] center) {
         this.center = center;
     }
+
 }

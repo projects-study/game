@@ -27,6 +27,7 @@ public class Level {
     private List<Rule> rules;
     private List<Wave> waves;
     private List<Enemy> runningEnemies;
+    private Map<Integer, List<Area>> paths;
 
     private long waveStartTime;
     private Map<Wave, Long> squadStartTimes;
@@ -45,7 +46,8 @@ public class Level {
         for (int i = 0; i < HEIGHT; i++)
             for (int j = 0; j < WIDTH; j++)
                 grid[i+1][j+1] = new Area(jsonLevel.getGrid()[i][j], j * (800 / WIDTH)+25, i * (600 / (HEIGHT + 1)) + 75);
-        List<Area> path = generatePath();
+        paths = new HashMap<>();
+        generatePaths();
         this.waves = new ArrayList<>();
         this.runningEnemies = new ArrayList<>();
         for (JsonWave jsonWave : jsonLevel.getWaves()) {
@@ -67,12 +69,35 @@ public class Level {
         this.squadStartTimes = new HashMap<>();
     }
 
-    private List<Area> generatePath() {
-        List<Area> path = new ArrayList<>();
+    private void generatePaths() {
+        for (int i = 0; i < HEIGHT; i++)
+            for (int j = 0; j < WIDTH; j++)
+                if(grid[i+1][j+1].isStartArea.getAsBoolean()) {
+                    System.out.println("START " + i + " " + j);
+                    findPathFromStart(i + 1, j + 1);
+                }
+    }
 
+    private void findPathFromStart(int i, int j) {
+        findPaths(i, j, new ArrayList<Area>());
+        System.out.println("PATHS: " + paths.size());
+    }
 
-
-        return path;
+    private void findPaths(int indX, int indY, List<Area> path){
+        path.add(grid[indX][indY]);
+        for(int i=-1; i<=1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if (i != 0 && j != 0) {
+                    Area nArea = grid[indX + i][indY + j];
+                    if(nArea != null && nArea.isFinishArea.getAsBoolean()){
+                        paths.put(path.size()+1, path);
+                    }else if(nArea != null && nArea.isRoadArea.getAsBoolean()){
+                        System.out.println("NEXT " + i + " " + j);
+                        findPaths(i, j, path);
+                    }
+                }
+            }
+        }
     }
 
     public void draw(Graphics2D g) {
