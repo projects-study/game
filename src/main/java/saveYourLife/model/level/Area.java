@@ -12,8 +12,9 @@ public class Area {
     private ImageFactory imageFactory = ImageFactory.getInstance();
 
     private int type;
+    private int[] center;
 
-    public Area(int type) {
+    public Area(int type, int x, int y) {
         this.type = type;
     }
 
@@ -33,5 +34,13 @@ public class Area {
 
     public int getType() {
         return type;
+    }
+
+    public int[] getCenter() {
+        return center;
+    }
+
+    public void setCenter(int[] center) {
+        this.center = center;
     }
 }

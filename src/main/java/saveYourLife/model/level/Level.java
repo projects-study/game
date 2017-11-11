@@ -41,10 +41,11 @@ public class Level {
         this.life = jsonLevel.getLife();
         this.cash = jsonLevel.getCash();
         this.rules = jsonLevel.getRules();
-        this.grid = new Area[HEIGHT][WIDTH];
+        this.grid = new Area[HEIGHT+2][WIDTH+2];
         for (int i = 0; i < HEIGHT; i++)
             for (int j = 0; j < WIDTH; j++)
-                grid[i][j] = new Area(jsonLevel.getGrid()[i][j]);
+                grid[i+1][j+1] = new Area(jsonLevel.getGrid()[i][j], j * (800 / WIDTH)+25, i * (600 / (HEIGHT + 1)) + 75);
+        List<Area> path = generatePath();
         this.waves = new ArrayList<>();
         this.runningEnemies = new ArrayList<>();
         for (JsonWave jsonWave : jsonLevel.getWaves()) {
@@ -66,12 +67,20 @@ public class Level {
         this.squadStartTimes = new HashMap<>();
     }
 
+    private List<Area> generatePath() {
+        List<Area> path = new ArrayList<>();
+
+
+
+        return path;
+    }
+
     public void draw(Graphics2D g) {
         g.setColor(Color.ORANGE);
         g.fillRect(0, 0, 800, 50);
         for (int i = 0; i < HEIGHT; i++) {
             for (int j = 0; j < WIDTH; j++) {
-                grid[i][j].draw(g, j * (800 / WIDTH), i * (600 / (HEIGHT + 1)) + 50);
+                grid[i+1][j+1].draw(g, j * (800 / WIDTH), i * (600 / (HEIGHT + 1)) + 50);
             }
         }
     }
@@ -152,7 +161,8 @@ public class Level {
         List<Wave> toRemove = squadStartTimes.entrySet()
                 .stream()
                 .filter(e -> e.getKey().getSquads().isEmpty())
-                .map(e -> e.getKey()).collect(Collectors.toList());
+                .map(e -> e.getKey())
+                .collect(Collectors.toList());
         toRemove.forEach(w -> squadStartTimes.remove(w));
     }
 }

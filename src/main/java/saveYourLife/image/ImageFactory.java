@@ -13,6 +13,10 @@ public class ImageFactory {
     private static ImageFactory instance;
     private Map<Integer, BufferedImage> areas;
 
+    static{
+        instance = new ImageFactory();
+    }
+
     private ImageFactory() {
         areas = new HashMap<>();
         loadGraphics();
@@ -32,7 +36,7 @@ public class ImageFactory {
     }
 
     public static synchronized ImageFactory getInstance() {
-        return instance == null ? instance = new ImageFactory() : instance;
+        return instance;
     }
 
     public BufferedImage getImage(int id){
