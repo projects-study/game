@@ -26,6 +26,9 @@ public class Area {
 
     public Area(int type, int x, int y) {
         this.type = type;
+        center = new int[2];
+        center[0] = x;
+        center[1] = y;
     }
 
     public void draw(Graphics2D g, int x, int y) {

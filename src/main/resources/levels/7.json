@@ -32,15 +32,15 @@
     {
       "squads":[
         {
-          "enemies": [1, 1],
+          "enemies": [1],
           "delay": 0
         },
         {
-          "enemies": [1, 1],
-          "delay": 5000
+          "enemies": [1],
+          "delay": 50000
         }
       ],
-      "delay": 10000
+      "delay": 100
     },
     {
       "squads":[
