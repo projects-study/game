@@ -119,22 +119,15 @@ public class Level {
         for (int i = 0; i < HEIGHT; i++)
             for (int j = 0; j < WIDTH; j++)
                 if(grid[i+1][j+1].isStartArea.getAsBoolean()) {
-//                    System.out.println("START " + (i+1) + " " + (j+1));
                     findPathFromStart(i + 1, j + 1);
                 }
     }
 
     private void findPathFromStart(int i, int j) {
         findPaths(i, j, new ArrayList<Area>());
-        /*System.out.println("PATHS: " + paths.size());
-        paths.forEach((k,v ) -> {
-            System.out.println("PATH " + k);
-                v.forEach(area -> System.out.println(area.getCenter()[0] + " "+ area.getCenter()[1]));
-        });*/
     }
 
     private void findPaths(int indX, int indY, List<Area> path){
-//        System.out.println("PS: "+path.size());
         path.add(grid[indX][indY]);
         boolean foundedOne = false;
         List<Area> cPath = null;
@@ -154,17 +147,14 @@ public class Level {
             for (int j = -1; j <= 1; j++) {
                 if ((i == 0 && j == -1) || (i == -1 && j == 0) || (i == 1 && j == 0) || (i == 0 && j == 1)) {
                     Area nArea = grid[indX + i][indY + j];
-//                    System.out.println("TEST " + (indX + i) + " " + (indY + j));
                     if(nArea != null && nArea.isFinishArea.getAsBoolean()){
                         List<Area> fPath = new ArrayList<>(){{
                             addAll(path);
                             add(nArea);
                         }};
                         addStartAndEnd(fPath);
-//                        cPath.add(nArea);
                         paths.put(paths.size()+1, fPath);
                     }else if(nArea != null && nArea.isRoadArea.getAsBoolean() && !path.contains(nArea)){
-//                        System.out.println("NEXT " + (indX + i) + " " + (indY + j));
                         if(foundedOne) {
                             findPaths(indX + i, indY + j, cPath);
                         }else {

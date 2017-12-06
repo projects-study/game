@@ -1,5 +1,8 @@
 package saveYourLife.model.enemy;
 
+import saveYourLife.enums.MoveDir;
+import saveYourLife.image.ImageFactory;
+import saveYourLife.image.Sprite;
 import saveYourLife.model.level.Area;
 
 import java.awt.*;
@@ -17,6 +20,13 @@ public class Enemy {
     private int y;
     private List<Area> path;
     private boolean readyToRemove = false;
+    private static ImageFactory imageFactory;
+    private double frame = 0;
+    private MoveDir moveDir;
+
+    static{
+        imageFactory = ImageFactory.getInstance();
+    }
 
     private Predicate<Area> isAtArea = area -> Math.abs((area.getCenter()[0] - areaPosition[0]) - x) < 5 &&
             Math.abs((area.getCenter()[1] - areaPosition[1]) - y) < 5;
@@ -96,7 +106,6 @@ public class Enemy {
         }
         x += direction[0] * speed;
         y += direction[1] * speed;
-
     }
 
     private void calculateNewDirection() {
@@ -114,14 +123,40 @@ public class Enemy {
                 direction[1] = -1;
             else
                 direction[1] = 0;
+
+            setNewMoveDir();
         } else {
             readyToRemove = true;
         }
 
     }
 
+    private void setNewMoveDir(){
+        if(direction[0]>0)
+            moveDir = MoveDir.RIGHT;
+        else if(direction[0]<0)
+            moveDir = MoveDir.LEFT;
+        else if(direction[1]>0)
+            moveDir = MoveDir.DOWN;
+        else if(direction[1]<0)
+            moveDir = MoveDir.UP;
+    }
+
     public void draw(Graphics2D g) {
-        g.setColor(Color.BLACK);
-        g.fillRect(x-5, y-5, 10, 10);
+        int tester = (int) (frame + .5);
+        if (tester < 3)
+            frame = (float) (frame + .1);
+        else
+            frame = 0;
+
+        Sprite sprite = imageFactory.getEnemy(id);
+        int xFrom = sprite.getFrames().get(moveDir).get((int)frame).getxFrom();
+        int xTo = sprite.getFrames().get(moveDir).get((int)frame).getxTo();
+        int yFrom = sprite.getFrames().get(moveDir).get((int)frame).getyFrom();
+        int yTo = sprite.getFrames().get(moveDir).get((int)frame).getyTo();
+        g.drawImage(sprite.getImage(), x-8, y-8, x+8, y+8, xFrom, yFrom, xTo, yTo, null);
+
+//        g.setColor(Color.BLACK);
+//        g.fillRect(x-5, y-5, 10, 10);
     }
 }
