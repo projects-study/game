@@ -18,8 +18,8 @@ public class Enemy {
     private List<Area> path;
     private boolean readyToRemove = false;
 
-    private Predicate<Area> isAtArea = area -> Math.abs((area.getCenter()[0]-areaPosition[0])-x) < 10 &&
-                                                Math.abs((area.getCenter()[1]-areaPosition[1])-y) < 10;
+    private Predicate<Area> isAtArea = area -> Math.abs((area.getCenter()[0] - areaPosition[0]) - x) < 5 &&
+            Math.abs((area.getCenter()[1] - areaPosition[1]) - y) < 5;
 
     public int getId() {
         return id;
@@ -81,39 +81,47 @@ public class Enemy {
         this.readyToRemove = readyToRemove;
     }
 
-    public void update(){
-        if(!path.isEmpty() && isAtArea.test(path.get(0))){
+    public int[] getAreaPosition() {
+        return areaPosition;
+    }
+
+    public void setAreaPosition(int[] areaPosition) {
+        this.areaPosition = areaPosition;
+    }
+
+    public void update() {
+        if (!path.isEmpty() && isAtArea.test(path.get(0))) {
             path.remove(0);
             calculateNewDirection();
         }
-        x += direction[0]*speed;
-        y += direction[1]*speed;
+        x += direction[0] * speed;
+        y += direction[1] * speed;
 
     }
 
     private void calculateNewDirection() {
-        if(!path.isEmpty()){
+        if (!path.isEmpty()) {
             Area area = path.get(0);
-            if((area.getCenter()[0]-areaPosition[0])-x > 10)
+            if ((area.getCenter()[0] - areaPosition[0]) - x > 10)
                 direction[0] = 1;
-            else if((area.getCenter()[0]-areaPosition[0])-x < -10)
+            else if ((area.getCenter()[0] - areaPosition[0]) - x < -10)
                 direction[0] = -1;
             else
                 direction[0] = 0;
-            if((area.getCenter()[1]-areaPosition[1])-y > 10)
+            if ((area.getCenter()[1] - areaPosition[1]) - y > 10)
                 direction[1] = 1;
-            else if((area.getCenter()[1]-areaPosition[1])-y < -10)
+            else if ((area.getCenter()[1] - areaPosition[1]) - y < -10)
                 direction[1] = -1;
             else
                 direction[1] = 0;
-        }else{
+        } else {
             readyToRemove = true;
         }
 
     }
 
-    public void draw(Graphics2D g){
+    public void draw(Graphics2D g) {
         g.setColor(Color.BLACK);
-        g.fillRect(x, y, 10, 10);
+        g.fillRect(x-5, y-5, 10, 10);
     }
 }

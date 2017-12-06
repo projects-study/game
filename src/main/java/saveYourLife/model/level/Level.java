@@ -220,7 +220,6 @@ public class Level {
     }
 
     public void update() {
-        System.out.println(runningEnemies.size());
         startNewWave();
         startNextSquad();
         runningEnemies.forEach(Enemy::update);
@@ -260,9 +259,12 @@ public class Level {
 
     private void placeEnemiesOnStart(List<Enemy> enemies, List<Area> path) {
         Area start = path.get(0);
+        Random random = new Random();
         enemies.forEach(e -> {
-            e.setX(start.getCenter()[0]);
-            e.setY(start.getCenter()[1]);
+            int[] areaPos = {random.nextInt(25)-10, random.nextInt(25)-10};
+            e.setX(start.getCenter()[0]-areaPos[0]);
+            e.setY(start.getCenter()[1]-areaPos[1]);
+            e.setAreaPosition(areaPos);
         });
     }
 
