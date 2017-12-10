@@ -1,0 +1,84 @@
+{
+  "frames":{
+    "UP":[
+      {
+        "xFrom": 0,
+        "xTo": 16,
+        "yFrom": 60,
+        "yTo": 80
+      },
+      {
+        "xFrom": 20,
+        "xTo": 40,
+        "yFrom": 60,
+        "yTo": 80
+      },
+      {
+        "xFrom": 40,
+        "xTo": 60,
+        "yFrom": 60,
+        "yTo": 80
+      }
+    ],
+    "DOWN":[
+      {
+        "xFrom": 0,
+        "xTo": 20,
+        "yFrom": 0,
+        "yTo": 20
+      },
+      {
+        "xFrom": 20,
+        "xTo": 40,
+        "yFrom": 20,
+        "yTo": 20
+      },
+      {
+        "xFrom": 40,
+        "xTo": 60,
+        "yFrom": 20,
+        "yTo": 20
+      }
+    ],
+    "RIGHT":[
+      {
+        "xFrom": 0,
+        "xTo": 20,
+        "yFrom": 0,
+        "yTo": 20
+      },
+      {
+        "xFrom": 20,
+        "xTo": 40,
+        "yFrom": 0,
+        "yTo": 20
+      },
+      {
+        "xFrom": 40,
+        "xTo": 60,
+        "yFrom": 0,
+        "yTo": 20
+      }
+    ],
+    "LEFT":[
+      {
+        "xFrom": 0,
+        "xTo": 20,
+        "yFrom": 40,
+        "yTo": 60
+      },
+      {
+        "xFrom": 20,
+        "xTo": 40,
+        "yFrom": 40,
+        "yTo": 60
+      },
+      {
+        "xFrom": 40,
+        "xTo": 60,
+        "yFrom": 40,
+        "yTo": 60
+      }
+    ]
+  }
+}
