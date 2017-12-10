@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class GameMain extends JPanel implements Runnable {
+public class GameMain extends JPanel implements Runnable{
 
     private static GameMain instance;
 
@@ -26,7 +26,7 @@ public class GameMain extends JPanel implements Runnable {
     private final int FPS = 60;
     private double averageFPS;
 
-    private Level level;
+    private static Level level;
 
     private GameMain() {
         super();
@@ -103,6 +103,10 @@ public class GameMain extends JPanel implements Runnable {
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, WIDTH, HEIGHT);
         level.draw(g);
+    }
+
+    public static Level getLevel(){
+        return level;
     }
 
 

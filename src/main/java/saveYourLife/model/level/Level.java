@@ -9,10 +9,8 @@ import saveYourLife.model.enemy.Squad;
 import saveYourLife.model.enemy.Wave;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
 import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -27,6 +25,7 @@ public class Level {
     private List<Rule> rules;
     private List<Wave> waves;
     private List<Enemy> runningEnemies;
+    private Map<Integer, List<Area>> paths;
 
     private long waveStartTime;
     private Map<Wave, Long> squadStartTimes;
@@ -41,10 +40,12 @@ public class Level {
         this.life = jsonLevel.getLife();
         this.cash = jsonLevel.getCash();
         this.rules = jsonLevel.getRules();
-        this.grid = new Area[HEIGHT][WIDTH];
+        this.grid = new Area[HEIGHT+2][WIDTH+2];
         for (int i = 0; i < HEIGHT; i++)
             for (int j = 0; j < WIDTH; j++)
-                grid[i][j] = new Area(jsonLevel.getGrid()[i][j]);
+                grid[i+1][j+1] = new Area(jsonLevel.getGrid()[i][j], j * (800 / WIDTH)+25, i * (600 / (HEIGHT + 1)) + 75);
+        paths = new HashMap<>();
+        generatePaths();
         this.waves = new ArrayList<>();
         this.runningEnemies = new ArrayList<>();
         for (JsonWave jsonWave : jsonLevel.getWaves()) {
@@ -64,16 +65,6 @@ public class Level {
         }
         this.waveStartTime = System.nanoTime();
         this.squadStartTimes = new HashMap<>();
-    }
-
-    public void draw(Graphics2D g) {
-        g.setColor(Color.ORANGE);
-        g.fillRect(0, 0, 800, 50);
-        for (int i = 0; i < HEIGHT; i++) {
-            for (int j = 0; j < WIDTH; j++) {
-                grid[i][j].draw(g, j * (800 / WIDTH), i * (600 / (HEIGHT + 1)) + 50);
-            }
-        }
     }
 
     public Area[][] getGrid() {
@@ -124,9 +115,105 @@ public class Level {
         this.runningEnemies = runningEnemies;
     }
 
+    private void generatePaths() {
+        for (int i = 0; i < HEIGHT; i++)
+            for (int j = 0; j < WIDTH; j++)
+                if(grid[i+1][j+1].isStartArea.getAsBoolean()) {
+                    findPathFromStart(i + 1, j + 1);
+                }
+    }
+
+    private void findPathFromStart(int i, int j) {
+        findPaths(i, j, new ArrayList<Area>());
+    }
+
+    private void findPaths(int indX, int indY, List<Area> path){
+        path.add(grid[indX][indY]);
+        boolean foundedOne = false;
+        List<Area> cPath = null;
+        int countRoads = 0;
+        for(int i=-1; i<=1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if ((i == 0 && j == -1) || (i == -1 && j == 0) || (i == 1 && j == 0) || (i == 0 && j == 1)) {
+                    Area nArea = grid[indX + i][indY + j];
+                    if(nArea != null && nArea.isRoadArea.getAsBoolean() && !path.contains(nArea))
+                        countRoads++;
+                }
+            }
+        }
+        if(countRoads > 1)
+            cPath = new ArrayList<>(path);
+        for(int i=-1; i<=1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if ((i == 0 && j == -1) || (i == -1 && j == 0) || (i == 1 && j == 0) || (i == 0 && j == 1)) {
+                    Area nArea = grid[indX + i][indY + j];
+                    if(nArea != null && nArea.isFinishArea.getAsBoolean()){
+                        List<Area> fPath = new ArrayList<>(){{
+                            addAll(path);
+                            add(nArea);
+                        }};
+                        addStartAndEnd(fPath);
+                        paths.put(paths.size()+1, fPath);
+                    }else if(nArea != null && nArea.isRoadArea.getAsBoolean() && !path.contains(nArea)){
+                        if(foundedOne) {
+                            findPaths(indX + i, indY + j, cPath);
+                        }else {
+                            foundedOne = true;
+                            findPaths(indX + i, indY + j, path);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void addStartAndEnd(List<Area> path) {
+        Area firstArea = path.get(0);
+        if(firstArea.getType() % 2 == 0){
+            if(firstArea.getCenter()[0] < 100){
+                path.add(0, new Area(-1, -25, firstArea.getCenter()[1]));
+            }else{
+                path.add(0, new Area(-1, firstArea.getCenter()[0]+25, firstArea.getCenter()[1]));
+            }
+        }else{
+            if(firstArea.getCenter()[1] < 100){
+                path.add(0, new Area(-1, firstArea.getCenter()[0], -25));
+            }else{
+                path.add(0, new Area(-1, firstArea.getCenter()[0], firstArea.getCenter()[1]+25));
+            }
+        }
+
+        Area lastArea = path.get(path.size()-1);
+        if(lastArea.getType() % 2 == 0){
+            if(lastArea.getCenter()[0] < 100){
+                path.add(new Area(-1, -25, lastArea.getCenter()[1]));
+            }else{
+                path.add(new Area(-1, lastArea.getCenter()[0]+25, lastArea.getCenter()[1]));
+            }
+        }else{
+            if(lastArea.getCenter()[1] < 100){
+                path.add(new Area(-1, lastArea.getCenter()[0], -25));
+            }else{
+                path.add(new Area(-1, lastArea.getCenter()[0], lastArea.getCenter()[1]+25));
+            }
+        }
+
+    }
+
+    public void draw(Graphics2D g) {
+        g.setColor(Color.ORANGE);
+        g.fillRect(0, 0, 800, 50);
+        for (int i = 0; i < HEIGHT; i++)
+            for (int j = 0; j < WIDTH; j++)
+                grid[i+1][j+1].draw(g, j * (800 / WIDTH), i * (600 / (HEIGHT + 1)) + 50);
+        runningEnemies.forEach(enemy -> enemy.draw(g));
+    }
+
     public void update() {
         startNewWave();
         startNextSquad();
+        runningEnemies.forEach(Enemy::update);
+        runningEnemies.removeIf(Enemy::isReadyToRemove);
     }
 
     private void startNewWave() {
@@ -144,6 +231,9 @@ public class Level {
                 .map(e -> e.getKey())
                 .collect(Collectors.toList());
         toRun.forEach(w -> {
+            List<Area> path = randomPath();
+            w.getSquads().get(0).getEnemies().forEach(enemy -> enemy.setPath(new ArrayList<>(path)));
+            placeEnemiesOnStart(w.getSquads().get(0).getEnemies(), path);
             runningEnemies.addAll(w.getSquads().get(0).getEnemies());
             w.getSquads().remove(0);
             squadStartTimes.replace(w, System.nanoTime());
@@ -152,7 +242,24 @@ public class Level {
         List<Wave> toRemove = squadStartTimes.entrySet()
                 .stream()
                 .filter(e -> e.getKey().getSquads().isEmpty())
-                .map(e -> e.getKey()).collect(Collectors.toList());
+                .map(e -> e.getKey())
+                .collect(Collectors.toList());
         toRemove.forEach(w -> squadStartTimes.remove(w));
+    }
+
+    private void placeEnemiesOnStart(List<Enemy> enemies, List<Area> path) {
+        Area start = path.get(0);
+        Random random = new Random();
+        enemies.forEach(e -> {
+            int[] areaPos = {random.nextInt(25)-10, random.nextInt(25)-10};
+            e.setX(start.getCenter()[0]-areaPos[0]);
+            e.setY(start.getCenter()[1]-areaPos[1]);
+            e.setAreaPosition(areaPos);
+        });
+    }
+
+    private List<Area> randomPath() {
+        int rand = new Random().nextInt(paths.size())+1;
+        return paths.get(rand);
     }
 }
