@@ -50,24 +50,24 @@
       "squads":[
         {
           "enemies": [1, 1, 4, 4, 4, 1, 1],
-          "delay": 0
+          "delay": 100
         },
         {
           "enemies": [6, 2, 2],
           "delay": 3000
         }
       ],
-      "delay": 10000
+      "delay": 30000
     },
     {
       "squads":[
         {
           "enemies": [4, 4, 4, 4, 4, 1, 1],
-          "delay": 0
+          "delay": 100
         },
         {
           "enemies": [2, 2, 2],
-          "delay": 2000
+          "delay": 3000
         },
         {
           "enemies": [4, 4, 4, 4, 4, 4, 4, 4],
@@ -78,13 +78,13 @@
           "delay": 3000
         }
       ],
-      "delay": 8000
+      "delay": 30000
     },
     {
       "squads":[
         {
           "enemies": [1, 1, 2, 2, 2, 5, 5],
-          "delay": 0
+          "delay": 1000
         },
         {
           "enemies": [4, 4, 4, 1, 1],
@@ -96,10 +96,10 @@
         },
         {
           "enemies": [7, 7, 7],
-          "delay": 3000
+          "delay": 4000
         }
       ],
-      "delay": 8000
+      "delay": 30000
     }
   ]
 }
