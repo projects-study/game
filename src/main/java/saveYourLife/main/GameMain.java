@@ -1,14 +1,16 @@
 package saveYourLife.main;
 
-import saveYourLife.listener.mouse.MouseListener;
+import saveYourLife.enums.Tower;
+import saveYourLife.image.ImageFactory;
 import saveYourLife.loader.LevelFactory;
 import saveYourLife.model.level.Level;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
-public class GameMain extends JPanel implements Runnable{
+public class GameMain extends JPanel implements Runnable, java.awt.event.MouseListener{
 
     private static GameMain instance;
 
@@ -27,6 +29,10 @@ public class GameMain extends JPanel implements Runnable{
     private double averageFPS;
 
     private static Level level;
+    private ImageFactory imageFactory;
+
+    private int menuX = -1;
+    private int menuY = -1;
 
     private GameMain() {
         super();
@@ -48,8 +54,9 @@ public class GameMain extends JPanel implements Runnable{
     }
 
     public void init() {
+        imageFactory = ImageFactory.getInstance();
         level = LevelFactory.loadLevel();
-        this.addMouseListener(new MouseListener());
+        this.addMouseListener(this);
     }
 
     public void run() {
@@ -103,6 +110,28 @@ public class GameMain extends JPanel implements Runnable{
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, WIDTH, HEIGHT);
         level.draw(g);
+        renderBuildMenu();
+    }
+
+    private void renderBuildMenu() {
+        if(menuX>=0 && menuY>=0){
+            int x = menuX*50-35;
+            int y = menuY*50+50-35;
+            g.drawImage(imageFactory.getMenu(), x, y, null);
+            x+=45;
+            y+=45;
+            int angle = 360/Tower.values().length;
+            System.out.println("ANGLE: "+angle);
+            int r = 50;
+            double[] v = {0, -1};
+            for(Tower tower: Tower.values()){
+                g.drawImage(imageFactory.getMinis().get(tower.getImageNo()), (int) (v[0]*r+x), (int) (v[1]*r+y), null);
+                System.out.println(tower.getImageNo()+" "+v[0]+" "+v[1]);
+                v[0] = v[0]*Math.cos(Math.toRadians(angle))-v[1]*Math.sin(Math.toRadians(angle));
+                v[1] = v[0]*Math.sin(Math.toRadians(angle))+v[1]*Math.cos(Math.toRadians(angle));
+
+            }
+        }
     }
 
     public static Level getLevel(){
@@ -110,4 +139,38 @@ public class GameMain extends JPanel implements Runnable{
     }
 
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        int x = e.getX();
+        int y = e.getY()-50;
+        int indX = x/50+1;
+        int indY = y/50+1;
+        if(level.getGrid()[indY][indX].isTowerArea.getAsBoolean()){
+            menuX=indX-1;
+            menuY=indY-1;
+        }else{
+            menuX=-1;
+            menuY=-1;
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        mouseClicked(e);
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+
+    }
 }

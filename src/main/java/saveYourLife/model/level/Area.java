@@ -1,28 +1,23 @@
 package saveYourLife.model.level;
 
+import saveYourLife.enums.Tower;
 import saveYourLife.image.ImageFactory;
 
 import java.awt.*;
-import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.util.function.BooleanSupplier;
-import java.util.function.Predicate;
 
 public class Area {
 
     private ImageFactory imageFactory = ImageFactory.getInstance();
 
     private int type;
+    public BooleanSupplier isStartArea = () -> type >= 0 && type <= 99;
+    public BooleanSupplier isFinishArea = () -> type >= 100 && type <= 199;
+    public BooleanSupplier isTowerArea = () -> type >= 200 && type <= 299;
+    public BooleanSupplier isRoadArea = () -> type >= 300 && type <= 399;
     private int[] center;
-
-    public BooleanSupplier isStartArea = () -> type >=0 && type <=99;
-
-    public BooleanSupplier isFinishArea = () -> type >=100 && type <=199;
-
-    public BooleanSupplier isTowerArea = () -> type >=200 && type <=299;
-
-    public BooleanSupplier isRoadArea = () -> type >=300 && type <=399;
+    private Tower tower;
 
     public Area(int type, int x, int y) {
         this.type = type;
@@ -41,12 +36,12 @@ public class Area {
         g.drawImage(img, x, y, null);
     }
 
-    public void setType(int type) {
-        this.type = type;
-    }
-
     public int getType() {
         return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     public int[] getCenter() {
@@ -57,4 +52,11 @@ public class Area {
         this.center = center;
     }
 
+    public Tower getTower() {
+        return tower;
+    }
+
+    public void setTower(Tower tower) {
+        this.tower = tower;
+    }
 }

@@ -1,10 +1,8 @@
 package saveYourLife.image;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import saveYourLife.enums.MoveDir;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -14,28 +12,37 @@ import java.util.Map;
 public class ImageFactory {
 
     private static ImageFactory instance;
-    private Map<Integer, BufferedImage> areas;
-    private Map<Integer, Sprite> enemies;
     private static ObjectMapper objectMapper = new ObjectMapper();
 
-    static{
+    static {
         instance = new ImageFactory();
     }
+
+    private Map<Integer, BufferedImage> areas;
+    private Map<Integer, Sprite> enemies;
+    private BufferedImage menu;
+    private Map<Integer, BufferedImage> minis;
 
     private ImageFactory() {
         areas = new HashMap<>();
         enemies = new HashMap<>();
+        minis = new HashMap<>();
         loadGraphics();
+    }
+
+    public static synchronized ImageFactory getInstance() {
+        return instance;
     }
 
     private void loadGraphics() {
         loadAreas();
         loadEnemies();
+        loadMenuAndMinis();
     }
 
-    private void loadAreas(){
+    private void loadAreas() {
         File folder = new File("./src/images/areas");
-        for(File file : folder.listFiles()){
+        for (File file : folder.listFiles()) {
             BufferedImage image = null;
             try {
                 image = ImageIO.read(file);
@@ -46,14 +53,14 @@ public class ImageFactory {
         }
     }
 
-    private void loadEnemies(){
+    private void loadEnemies() {
         File folder = new File("./src/images/enemies");
-        for(File file : folder.listFiles()){
+        for (File file : folder.listFiles()) {
             BufferedImage image = null;
             try {
                 image = ImageIO.read(file);
                 String id = file.getName().split("\\.")[0];
-                Sprite sprite = objectMapper.readValue(new File("./src/main/resources/enemies/sprite/"+ id +".json"), Sprite.class);
+                Sprite sprite = objectMapper.readValue(new File("./src/main/resources/enemies/sprite/" + id + ".json"), Sprite.class);
                 sprite.setImage(image);
                 enemies.put(Integer.parseInt(id), sprite);
             } catch (IOException e) {
@@ -62,16 +69,57 @@ public class ImageFactory {
         }
     }
 
-    public static synchronized ImageFactory getInstance() {
-        return instance;
+    private void loadMenuAndMinis(){
+        loadMenu();
+        loadMinis();
     }
 
-    public BufferedImage getImage(int id){
+    private void loadMenu(){
+        File folder = new File("./src/images/menu");
+        for (File file : folder.listFiles()) {
+            try {
+                menu = ImageIO.read(file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void loadMinis(){
+        File folder = new File("./src/images/min");
+        for (File file : folder.listFiles()) {
+            BufferedImage image = null;
+            try {
+                image = ImageIO.read(file);
+                String id = file.getName().split("\\.")[0].split("min")[1];
+                minis.put(Integer.parseInt(id), image);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public BufferedImage getImage(int id) {
         return areas.get(id);
     }
 
-    public Sprite getEnemy(int id){
+    public Sprite getEnemy(int id) {
         return enemies.get(id);
     }
 
+    public BufferedImage getMenu() {
+        return menu;
+    }
+
+    public void setMenu(BufferedImage menu) {
+        this.menu = menu;
+    }
+
+    public Map<Integer, BufferedImage> getMinis() {
+        return minis;
+    }
+
+    public void setMinis(Map<Integer, BufferedImage> minis) {
+        this.minis = minis;
+    }
 }

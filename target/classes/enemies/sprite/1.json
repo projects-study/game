@@ -14,14 +14,14 @@
         "yTo": 16
       },
       {
-        "xFrom": 48,
-        "xTo": 64,
+        "xFrom": 32,
+        "xTo": 48,
         "yFrom": 0,
         "yTo": 16
       },
       {
-        "xFrom": 80,
-        "xTo": 96,
+        "xFrom": 48,
+        "xTo": 64,
         "yFrom": 0,
         "yTo": 16
       }
@@ -40,14 +40,14 @@
         "yTo": 16
       },
       {
-        "xFrom": 48,
-        "xTo": 64,
+        "xFrom": 32,
+        "xTo": 48,
         "yFrom": 0,
         "yTo": 16
       },
       {
-        "xFrom": 80,
-        "xTo": 96,
+        "xFrom": 48,
+        "xTo": 64,
         "yFrom": 0,
         "yTo": 16
       }
@@ -66,14 +66,14 @@
         "yTo": 16
       },
       {
-        "xFrom": 48,
-        "xTo": 64,
+        "xFrom": 32,
+        "xTo": 48,
         "yFrom": 0,
         "yTo": 16
       },
       {
-        "xFrom": 80,
-        "xTo": 96,
+        "xFrom": 48,
+        "xTo": 64,
         "yFrom": 0,
         "yTo": 16
       }
@@ -92,14 +92,14 @@
         "yTo": 16
       },
       {
-        "xFrom": 48,
-        "xTo": 64,
+        "xFrom": 32,
+        "xTo": 48,
         "yFrom": 0,
         "yTo": 16
       },
       {
-        "xFrom": 80,
-        "xTo": 96,
+        "xFrom": 48,
+        "xTo": 64,
         "yFrom": 0,
         "yTo": 16
       }

@@ -13,7 +13,7 @@ public class Enemy {
 
     private int id;
     private int hp;
-    private int speed;
+    private double speed;
     private int[] areaPosition;
     private int[] direction;
     private int x;
@@ -47,11 +47,11 @@ public class Enemy {
         this.hp = hp;
     }
 
-    public int getSpeed() {
+    public double getSpeed() {
         return speed;
     }
 
-    public void setSpeed(int speed) {
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
 
@@ -143,18 +143,21 @@ public class Enemy {
     }
 
     public void draw(Graphics2D g) {
+        Sprite sprite = imageFactory.getEnemy(id);
         int tester = (int) (frame + .5);
-        if (tester < 3)
+        if (tester < sprite.getFrames().get(moveDir).size())
             frame = (float) (frame + .1);
         else
             frame = 0;
 
-        Sprite sprite = imageFactory.getEnemy(id);
+
         int xFrom = sprite.getFrames().get(moveDir).get((int)frame).getxFrom();
         int xTo = sprite.getFrames().get(moveDir).get((int)frame).getxTo();
         int yFrom = sprite.getFrames().get(moveDir).get((int)frame).getyFrom();
         int yTo = sprite.getFrames().get(moveDir).get((int)frame).getyTo();
-        g.drawImage(sprite.getImage(), x-8, y-8, x+8, y+8, xFrom, yFrom, xTo, yTo, null);
+        int halfWidth = (xTo-xFrom)/2;
+        int halfHeight = (yTo-yFrom)/2;
+        g.drawImage(sprite.getImage(), x-halfWidth, y-halfHeight, x+halfWidth, y+halfHeight, xFrom, yFrom, xTo, yTo, null);
 
 //        g.setColor(Color.BLACK);
 //        g.fillRect(x-5, y-5, 10, 10);
