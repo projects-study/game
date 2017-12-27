@@ -3,12 +3,15 @@ package saveYourLife.main;
 import saveYourLife.enums.Tower;
 import saveYourLife.image.ImageFactory;
 import saveYourLife.loader.LevelFactory;
+import saveYourLife.model.level.Area;
 import saveYourLife.model.level.Level;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class GameMain extends JPanel implements Runnable, java.awt.event.MouseListener{
 
@@ -33,6 +36,7 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
 
     private int menuX = -1;
     private int menuY = -1;
+    private boolean buildMenu;
 
     private GameMain() {
         super();
@@ -121,15 +125,16 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
             x+=45;
             y+=45;
             int angle = 360/Tower.values().length;
-            System.out.println("ANGLE: "+angle);
             int r = 50;
             double[] v = {0, -1};
             for(Tower tower: Tower.values()){
-                g.drawImage(imageFactory.getMinis().get(tower.getImageNo()), (int) (v[0]*r+x), (int) (v[1]*r+y), null);
-                System.out.println(tower.getImageNo()+" "+v[0]+" "+v[1]);
-                v[0] = v[0]*Math.cos(Math.toRadians(angle))-v[1]*Math.sin(Math.toRadians(angle));
-                v[1] = v[0]*Math.sin(Math.toRadians(angle))+v[1]*Math.cos(Math.toRadians(angle));
-
+                if(tower.isEnabled()) {
+                    g.drawImage(imageFactory.getMinis().get(tower.getImageNo()), (int) (v[0] * r + x), (int) (v[1] * r + y), null);
+                    double tmpX = v[0];
+                    double tmpY = v[1];
+                    v[0] = tmpX * Math.cos(Math.toRadians(angle)) - tmpY * Math.sin(Math.toRadians(angle));
+                    v[1] = tmpX * Math.sin(Math.toRadians(angle)) + tmpY * Math.cos(Math.toRadians(angle));
+                }
             }
         }
     }
@@ -145,12 +150,51 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
         int y = e.getY()-50;
         int indX = x/50+1;
         int indY = y/50+1;
-        if(level.getGrid()[indY][indX].isTowerArea.getAsBoolean()){
-            menuX=indX-1;
-            menuY=indY-1;
+        if(!buildMenu){
+            if(level.getGrid()[indY][indX].isTowerArea.getAsBoolean()){
+                menuX=indX-1;
+                menuY=indY-1;
+                buildMenu=true;
+            }else{
+                menuX=-1;
+                menuY=-1;
+                buildMenu=false;
+            }
         }else{
-            menuX=-1;
-            menuY=-1;
+            if(level.getGrid()[indY][indX].isTowerArea.getAsBoolean()){
+                menuX=indX-1;
+                menuY=indY-1;
+            }else{
+                clickTower(e.getX(), e.getY());
+                menuX=-1;
+                menuY=-1;
+                buildMenu=false;
+            }
+        }
+
+    }
+
+    private void clickTower(int mx, int my) {
+        int x = menuX*50+10;
+        int y = menuY*50+60;
+        int angle = 360/Tower.values().length;
+        int r = 50;
+        double[] v = {0, -1};
+        for(Tower tower: Tower.values()){
+            if(tower.isEnabled()) {
+                int towerX = (int) (v[0] * r + x);
+                int towerY = (int) (v[1] * r + y);
+                double tmpX = v[0];
+                double tmpY = v[1];
+                v[0] = tmpX * Math.cos(Math.toRadians(angle)) - tmpY * Math.sin(Math.toRadians(angle));
+                v[1] = tmpX * Math.sin(Math.toRadians(angle)) + tmpY * Math.cos(Math.toRadians(angle));
+                if (Math.abs(towerX - mx) <= 20 && Math.abs(towerY - my) <= 20) {
+                    int indX = x / 50 + 1;
+                    int indY = (y - 50) / 50 + 1;
+                    Area area = level.getGrid()[indY][indX];
+                    area.setTower(tower);
+                }
+            }
         }
     }
 

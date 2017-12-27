@@ -33,7 +33,10 @@ public class Area {
 //        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, 25, 25);
 //        AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
 //        g.drawImage(op.filter(img, null), x, y, null);
-        g.drawImage(img, x, y, null);
+        if(tower==null)
+            g.drawImage(img, x, y, null);
+        else
+            g.drawImage(imageFactory.getImage(tower.getImageNo()),x,y,null);
     }
 
     public int getType() {
