@@ -1,6 +1,7 @@
 package saveYourLife.main;
 
-import saveYourLife.enums.Tower;
+import saveYourLife.enums.TowerType;
+import saveYourLife.model.level.Tower;
 import saveYourLife.image.ImageFactory;
 import saveYourLife.loader.LevelFactory;
 import saveYourLife.model.level.Area;
@@ -10,8 +11,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.util.Arrays;
-import java.util.stream.Collectors;
 
 public class GameMain extends JPanel implements Runnable, java.awt.event.MouseListener{
 
@@ -124,10 +123,10 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
             g.drawImage(imageFactory.getMenu(), x, y, null);
             x+=45;
             y+=45;
-            int angle = 360/Tower.values().length;
+            int angle = 360/ TowerType.values().length;
             int r = 50;
             double[] v = {0, -1};
-            for(Tower tower: Tower.values()){
+            for(TowerType tower: TowerType.values()){
                 if(tower.isEnabled()) {
                     g.drawImage(imageFactory.getMinis().get(tower.getImageNo()), (int) (v[0] * r + x), (int) (v[1] * r + y), null);
                     double tmpX = v[0];
@@ -177,10 +176,10 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
     private void clickTower(int mx, int my) {
         int x = menuX*50+10;
         int y = menuY*50+60;
-        int angle = 360/Tower.values().length;
+        int angle = 360/TowerType.values().length;
         int r = 50;
         double[] v = {0, -1};
-        for(Tower tower: Tower.values()){
+        for(TowerType tower: TowerType.values()){
             if(tower.isEnabled()) {
                 int towerX = (int) (v[0] * r + x);
                 int towerY = (int) (v[1] * r + y);
@@ -192,7 +191,7 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
                     int indX = x / 50 + 1;
                     int indY = (y - 50) / 50 + 1;
                     Area area = level.getGrid()[indY][indX];
-                    area.setTower(tower);
+                    area.setTower(new Tower(tower));
                 }
             }
         }

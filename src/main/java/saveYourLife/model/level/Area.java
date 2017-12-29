@@ -1,6 +1,5 @@
 package saveYourLife.model.level;
 
-import saveYourLife.enums.Tower;
 import saveYourLife.image.ImageFactory;
 
 import java.awt.*;
@@ -28,15 +27,10 @@ public class Area {
 
     public void draw(Graphics2D g, int x, int y) {
         BufferedImage img = imageFactory.getImage(type);
-//        int angle = 90;
-//        double rotationRequired = Math.toRadians (angle);
-//        AffineTransform tx = AffineTransform.getRotateInstance(rotationRequired, 25, 25);
-//        AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_BILINEAR);
-//        g.drawImage(op.filter(img, null), x, y, null);
         if(tower==null)
             g.drawImage(img, x, y, null);
         else
-            g.drawImage(imageFactory.getImage(tower.getImageNo()),x,y,null);
+            g.drawImage(imageFactory.getImage(tower.getTowerType().getImageNo()),x,y,null);
     }
 
     public int getType() {

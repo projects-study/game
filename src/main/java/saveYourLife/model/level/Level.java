@@ -26,6 +26,7 @@ public class Level {
     private List<Wave> waves;
     private List<Enemy> runningEnemies;
     private Map<Integer, List<Area>> paths;
+    private List<Bullet> bullets;
 
     private long waveStartTime;
     private Map<Wave, Long> squadStartTimes;
@@ -40,10 +41,10 @@ public class Level {
         this.life = jsonLevel.getLife();
         this.cash = jsonLevel.getCash();
         this.rules = jsonLevel.getRules();
-        this.grid = new Area[HEIGHT+2][WIDTH+2];
+        this.grid = new Area[HEIGHT + 2][WIDTH + 2];
         for (int i = 0; i < HEIGHT; i++)
             for (int j = 0; j < WIDTH; j++)
-                grid[i+1][j+1] = new Area(jsonLevel.getGrid()[i][j], j * (800 / WIDTH)+25, i * (600 / (HEIGHT + 1)) + 75);
+                grid[i + 1][j + 1] = new Area(jsonLevel.getGrid()[i][j], j * (800 / WIDTH) + 25, i * (600 / (HEIGHT + 1)) + 75);
         paths = new HashMap<>();
         generatePaths();
         this.waves = new ArrayList<>();
@@ -65,6 +66,7 @@ public class Level {
         }
         this.waveStartTime = System.nanoTime();
         this.squadStartTimes = new HashMap<>();
+        this.bullets = new ArrayList<>();
     }
 
     public Area[][] getGrid() {
@@ -118,7 +120,7 @@ public class Level {
     private void generatePaths() {
         for (int i = 0; i < HEIGHT; i++)
             for (int j = 0; j < WIDTH; j++)
-                if(grid[i+1][j+1].isStartArea.getAsBoolean()) {
+                if (grid[i + 1][j + 1].isStartArea.getAsBoolean()) {
                     findPathFromStart(i + 1, j + 1);
                 }
     }
@@ -127,37 +129,37 @@ public class Level {
         findPaths(i, j, new ArrayList<Area>());
     }
 
-    private void findPaths(int indX, int indY, List<Area> path){
+    private void findPaths(int indX, int indY, List<Area> path) {
         path.add(grid[indX][indY]);
         boolean foundedOne = false;
         List<Area> cPath = null;
         int countRoads = 0;
-        for(int i=-1; i<=1; i++) {
+        for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 if ((i == 0 && j == -1) || (i == -1 && j == 0) || (i == 1 && j == 0) || (i == 0 && j == 1)) {
                     Area nArea = grid[indX + i][indY + j];
-                    if(nArea != null && nArea.isRoadArea.getAsBoolean() && !path.contains(nArea))
+                    if (nArea != null && nArea.isRoadArea.getAsBoolean() && !path.contains(nArea))
                         countRoads++;
                 }
             }
         }
-        if(countRoads > 1)
+        if (countRoads > 1)
             cPath = new ArrayList<>(path);
-        for(int i=-1; i<=1; i++) {
+        for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
                 if ((i == 0 && j == -1) || (i == -1 && j == 0) || (i == 1 && j == 0) || (i == 0 && j == 1)) {
                     Area nArea = grid[indX + i][indY + j];
-                    if(nArea != null && nArea.isFinishArea.getAsBoolean()){
-                        List<Area> fPath = new ArrayList<>(){{
+                    if (nArea != null && nArea.isFinishArea.getAsBoolean()) {
+                        List<Area> fPath = new ArrayList<>() {{
                             addAll(path);
                             add(nArea);
                         }};
                         addStartAndEnd(fPath);
-                        paths.put(paths.size()+1, fPath);
-                    }else if(nArea != null && nArea.isRoadArea.getAsBoolean() && !path.contains(nArea)){
-                        if(foundedOne) {
+                        paths.put(paths.size() + 1, fPath);
+                    } else if (nArea != null && nArea.isRoadArea.getAsBoolean() && !path.contains(nArea)) {
+                        if (foundedOne) {
                             findPaths(indX + i, indY + j, cPath);
-                        }else {
+                        } else {
                             foundedOne = true;
                             findPaths(indX + i, indY + j, path);
                         }
@@ -169,32 +171,32 @@ public class Level {
 
     private void addStartAndEnd(List<Area> path) {
         Area firstArea = path.get(0);
-        if(firstArea.getType() % 2 == 0){
-            if(firstArea.getCenter()[0] < 100){
+        if (firstArea.getType() % 2 == 0) {
+            if (firstArea.getCenter()[0] < 100) {
                 path.add(0, new Area(-1, -25, firstArea.getCenter()[1]));
-            }else{
-                path.add(0, new Area(-1, firstArea.getCenter()[0]+25, firstArea.getCenter()[1]));
+            } else {
+                path.add(0, new Area(-1, firstArea.getCenter()[0] + 25, firstArea.getCenter()[1]));
             }
-        }else{
-            if(firstArea.getCenter()[1] < 100){
+        } else {
+            if (firstArea.getCenter()[1] < 100) {
                 path.add(0, new Area(-1, firstArea.getCenter()[0], -25));
-            }else{
-                path.add(0, new Area(-1, firstArea.getCenter()[0], firstArea.getCenter()[1]+25));
+            } else {
+                path.add(0, new Area(-1, firstArea.getCenter()[0], firstArea.getCenter()[1] + 25));
             }
         }
 
-        Area lastArea = path.get(path.size()-1);
-        if(lastArea.getType() % 2 == 0){
-            if(lastArea.getCenter()[0] < 100){
+        Area lastArea = path.get(path.size() - 1);
+        if (lastArea.getType() % 2 == 0) {
+            if (lastArea.getCenter()[0] < 100) {
                 path.add(new Area(-1, -25, lastArea.getCenter()[1]));
-            }else{
-                path.add(new Area(-1, lastArea.getCenter()[0]+25, lastArea.getCenter()[1]));
+            } else {
+                path.add(new Area(-1, lastArea.getCenter()[0] + 25, lastArea.getCenter()[1]));
             }
-        }else{
-            if(lastArea.getCenter()[1] < 100){
+        } else {
+            if (lastArea.getCenter()[1] < 100) {
                 path.add(new Area(-1, lastArea.getCenter()[0], -25));
-            }else{
-                path.add(new Area(-1, lastArea.getCenter()[0], lastArea.getCenter()[1]+25));
+            } else {
+                path.add(new Area(-1, lastArea.getCenter()[0], lastArea.getCenter()[1] + 25));
             }
         }
 
@@ -205,15 +207,49 @@ public class Level {
         g.fillRect(0, 0, 800, 50);
         for (int i = 0; i < HEIGHT; i++)
             for (int j = 0; j < WIDTH; j++)
-                grid[i+1][j+1].draw(g, j * (800 / WIDTH), i * (600 / (HEIGHT + 1)) + 50);
+                grid[i + 1][j + 1].draw(g, j * (800 / WIDTH), i * (600 / (HEIGHT + 1)) + 50);
         runningEnemies.forEach(enemy -> enemy.draw(g));
+        bullets.forEach(b -> b.draw(g));
     }
 
     public void update() {
         startNewWave();
         startNextSquad();
+        updateTowers();
+        updateBullets();
+        updateEnemies();
+    }
+
+    private void updateEnemies() {
         runningEnemies.forEach(Enemy::update);
         runningEnemies.removeIf(Enemy::isReadyToRemove);
+    }
+
+    private void updateBullets() {
+        bullets.forEach(Bullet::update);
+        bullets.removeIf(Bullet::isRdyToRemove);
+    }
+
+    private void updateTowers() {
+        for (int i = 0; i < HEIGHT; i++)
+            for (int j = 0; j < WIDTH; j++)
+                if (grid[i + 1][j + 1].getTower()!=null)
+                    updateTower(grid[i + 1][j + 1]);
+    }
+
+    private void updateTower(Area area) {
+        runningEnemies.forEach(e -> {
+            Tower tower = area.getTower();
+            if(isEnemyInTowerRange(area, e) && tower.canShoot()){
+                area.getTower().shoot();
+                bullets.add(new Bullet(area.getCenter()[0], area.getCenter()[1], tower.getTowerType().getImageNo(), tower.getTowerType().getFirePower(), e));
+                System.out.println("SHOOT");
+            }
+        });
+    }
+
+    private boolean isEnemyInTowerRange(Area area, Enemy enemy) {
+        return Math.sqrt(Math.pow((area.getCenter()[0] - enemy.getX()), 2) + Math.pow((area.getCenter()[1] - enemy.getY()), 2)) <= area.getTower().getTowerType().getRange();
     }
 
     private void startNewWave() {
@@ -251,15 +287,15 @@ public class Level {
         Area start = path.get(0);
         Random random = new Random();
         enemies.forEach(e -> {
-            int[] areaPos = {random.nextInt(25)-10, random.nextInt(25)-10};
-            e.setX(start.getCenter()[0]-areaPos[0]);
-            e.setY(start.getCenter()[1]-areaPos[1]);
+            int[] areaPos = {random.nextInt(25) - 10, random.nextInt(25) - 10};
+            e.setX(start.getCenter()[0] - areaPos[0]);
+            e.setY(start.getCenter()[1] - areaPos[1]);
             e.setAreaPosition(areaPos);
         });
     }
 
     private List<Area> randomPath() {
-        int rand = new Random().nextInt(paths.size())+1;
+        int rand = new Random().nextInt(paths.size()) + 1;
         return paths.get(rand);
     }
 }

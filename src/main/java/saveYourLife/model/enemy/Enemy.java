@@ -19,7 +19,7 @@ public class Enemy {
     private int x;
     private int y;
     private List<Area> path;
-    private boolean readyToRemove = false;
+    private boolean readyToRemove;
     private static ImageFactory imageFactory;
     private double frame = 0;
     private MoveDir moveDir;
@@ -104,6 +104,8 @@ public class Enemy {
             path.remove(0);
             calculateNewDirection();
         }
+        if(hp<=0)
+            readyToRemove=true;
         x += direction[0] * speed;
         y += direction[1] * speed;
     }
