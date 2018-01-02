@@ -1,6 +1,7 @@
 package saveYourLife.model.enemy;
 
 import saveYourLife.enums.MoveDir;
+import saveYourLife.enums.MovingEffect;
 import saveYourLife.image.ImageFactory;
 import saveYourLife.image.Sprite;
 import saveYourLife.model.level.Area;
@@ -11,19 +12,23 @@ import java.util.function.Predicate;
 
 public class Enemy {
 
+    private static Color darkGreen = new Color(60,179,113);
+
     private int id;
     private int hp;
     private double speed;
     private int[] areaPosition;
     private int[] direction;
-    private int x;
-    private int y;
+    private double x;
+    private double y;
     private List<Area> path;
     private boolean readyToRemove;
     private static ImageFactory imageFactory;
     private double frame = 0;
     private MoveDir moveDir;
     private int cash;
+    private MovingEffect movingEffect;
+    private Long movingEffectTimestamp;
 
     static{
         imageFactory = ImageFactory.getInstance();
@@ -68,7 +73,7 @@ public class Enemy {
         direction = new int[2];
     }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
@@ -76,7 +81,7 @@ public class Enemy {
         this.x = x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
@@ -109,8 +114,18 @@ public class Enemy {
         }
         if(hp<=0)
             readyToRemove=true;
-        x += direction[0] * speed;
-        y += direction[1] * speed;
+        if(movingEffect != null && System.nanoTime()-movingEffectTimestamp>=movingEffect.getEffectDuration())
+            movingEffect = null;
+        double newSpeed = speed;
+        if(movingEffect!=null)
+            newSpeed *=movingEffect.getEffectStrength();
+        x += direction[0] * newSpeed;
+        y += direction[1] * newSpeed;
+    }
+
+    public void setMovingEffect(MovingEffect movingEffect){
+        this.movingEffect = movingEffect;
+        this.movingEffectTimestamp = System.nanoTime();
     }
 
     private void calculateNewDirection() {
@@ -162,7 +177,11 @@ public class Enemy {
         int yTo = sprite.getFrames().get(moveDir).get((int)frame).getyTo();
         int halfWidth = (xTo-xFrom)/2;
         int halfHeight = (yTo-yFrom)/2;
-        g.drawImage(sprite.getImage(), x-halfWidth, y-halfHeight, x+halfWidth, y+halfHeight, xFrom, yFrom, xTo, yTo, null);
-        g.drawString(hp+"", x, y);
+        g.drawImage(sprite.getImage(), (int)(x-halfWidth), (int)(y-halfHeight), (int)(x+halfWidth), (int)(y+halfHeight), xFrom, yFrom, xTo, yTo, null);
+        if(movingEffect!=null) {
+            g.setColor(darkGreen);
+            g.setFont(new Font("default", Font.BOLD, 10));
+            g.drawString("S", (int)(x+halfWidth), (int)(y+halfHeight));
+        }
     }
 }

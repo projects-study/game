@@ -114,19 +114,25 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
     }
 
     private synchronized void gameRender() {
-        g.setColor(Color.BLACK);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
         level.draw(g);
         renderBuildMenu();
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("default", Font.BOLD, 12));
-        g.drawString(level.getCash()+"", 10, 10);
-        g.drawString(level.getLife()+"", 30, 30);
         if(level.getLife()<=0){
             g.setFont(new Font("default", Font.BOLD, 60));
             g.setColor(Color.RED);
             g.drawString("GAME OVER!", 300, 300);
         }
+        g.drawImage(imageFactory.getBar(),0,0,null);
+        g.setColor(Color.WHITE);
+        renderBar();
+
+    }
+
+    private synchronized void renderBar(){
+        g.setColor(Color.BLACK);
+        g.setFont(new Font("default", Font.BOLD, 16));
+        g.drawString("WAVE: "+(level.getTotalWaves()-level.getWaves().size())+" / "+level.getTotalWaves(), 10, 25);
+        g.drawString("HP: "+level.getLife(), 200, 25);
+        g.drawString("CASH: "+level.getCash()+" $ ", 300, 25);
     }
 
     private void renderBuildMenu() {

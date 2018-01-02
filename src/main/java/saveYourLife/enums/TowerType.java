@@ -1,23 +1,25 @@
 package saveYourLife.enums;
 
 public enum TowerType {
-    MAGIC(202, 100D, 10, 100),
-    SLOWING(203, 100D, 10, 1000),
-    ARROW(205, 100D, 10, 10),
-    AOE(204, 100D, 10, 10);
+    MAGIC(202, 100D, 10, 1000000000L, 10),
+    SLOWING(203, 100D, 1, 1000000000L, 10),
+    ARROW(205, 100D, 10, 1000000000L, 10),
+    AOE(204, 100D, 5, 1000000000L, 10);
 
     private final int imageNo;
     private boolean enabled;
     private Double range;
     private int firePower;
     private int cost;
+    private Long fireRate;
 
-    TowerType(int imageNo, Double range, int firePower, int cost) {
+    TowerType(int imageNo, Double range, int firePower, Long fireRate, int cost) {
         this.imageNo = imageNo;
         this.enabled = true;
         this.range = range;
         this.firePower = firePower;
         this.cost = cost;
+        this.fireRate = fireRate;
     }
 
     public int getImageNo() {
@@ -49,4 +51,6 @@ public enum TowerType {
     }
 
     public int getCost(){return cost;}
+
+    public Long getFireRate() { return fireRate; }
 }

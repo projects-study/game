@@ -6,12 +6,11 @@ public class Tower {
 
     private TowerType towerType;
     private Long fireTimestamp;
-    private Long fireRate;
+
 
     public Tower(TowerType towerType) {
         this.towerType = towerType;
         this.fireTimestamp = System.nanoTime();
-        this.fireRate = 1000000000L;
     }
 
     public TowerType getTowerType() {
@@ -23,7 +22,7 @@ public class Tower {
     }
 
     public boolean canShoot() {
-        return System.nanoTime() - fireTimestamp >= fireRate;
+        return System.nanoTime() - fireTimestamp >= towerType.getFireRate();
     }
 
     public void shoot() {
@@ -38,11 +37,4 @@ public class Tower {
         this.fireTimestamp = fireTimestamp;
     }
 
-    public Long getFireRate() {
-        return fireRate;
-    }
-
-    public void setFireRate(Long fireRate) {
-        this.fireRate = fireRate;
-    }
 }

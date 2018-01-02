@@ -1,5 +1,6 @@
 package saveYourLife.model.level;
 
+import saveYourLife.enums.MovingEffect;
 import saveYourLife.image.ImageFactory;
 import saveYourLife.model.enemy.Enemy;
 
@@ -17,6 +18,7 @@ public class Bullet {
     private Enemy target;
     private double[] v;
     private boolean rdyToRemove;
+    private Long boomTime;
 
     private Predicate<Enemy> isTargetHit = enemy -> Math.abs(enemy.getX() - x) < 10 && Math.abs(enemy.getY() - y) < 10;
 
@@ -71,17 +73,30 @@ public class Bullet {
     }
 
     public void update() {
-        calculateNewV();
-        x += v[0] * 6;
-        y += v[1] * 6;
-        if (isTargetHit.test(target)) {
+        if(boomTime == null){
+            calculateNewV();
+            x += v[0] * 6;
+            y += v[1] * 6;
+        }
+        if (isTargetHit.test(target) && boomTime==null) {
             target.setHp(target.getHp() - dmg);
+            if(imageNr == 203)
+                target.setMovingEffect(MovingEffect.SLOWDOWN);
+            if(imageNr != 204)
+                rdyToRemove = true;
+            else
+                boomTime = System.nanoTime();
+        }
+        if(boomTime!=null && System.nanoTime()-boomTime>500000000L){
             rdyToRemove = true;
         }
     }
 
     public void draw(Graphics2D g) {
-        g.drawImage(imageFactory.getBullet(imageNr), (int)x, (int)y,null);
+        if(boomTime == null)
+            g.drawImage(imageFactory.getBullet(imageNr), (int)x, (int)y,null);
+        else
+            g.drawImage(imageFactory.getBoomBullet(), (int)x-25, (int)y-25,null);
     }
 
     public Enemy getTarget() {

@@ -25,6 +25,7 @@ public class Level {
     private int life;
     private int cash;
     private List<Rule> rules;
+    private int totalWaves;
     private List<Wave> waves;
     private List<Enemy> runningEnemies;
     private Map<Integer, List<Area>> paths;
@@ -70,6 +71,7 @@ public class Level {
             }
             waves.add(wave);
         }
+        totalWaves = waves.size();
         this.waveStartTime = System.nanoTime();
         this.squadStartTimes = new HashMap<>();
         this.bullets = new ArrayList<>();
@@ -79,6 +81,10 @@ public class Level {
                 if(tower.getImageNo() == i)
                     tower.setEnabled(false);
         });
+    }
+
+    public int getTotalWaves(){
+        return totalWaves;
     }
 
     public Rule getRule(RuleType ruleType){
@@ -259,6 +265,11 @@ public class Level {
 
     private void updateBullets() {
         bullets.forEach(Bullet::update);
+        for(Bullet bullet: bullets)
+            if(bullet.isRdyToRemove() && bullet.getImageNr() == 204)
+                for(Enemy enemy: runningEnemies)
+                    if(Math.sqrt(Math.pow((bullet.getX() - enemy.getX()), 2) + Math.pow((bullet.getY() - enemy.getY()), 2)) <= 25)
+                        enemy.setHp(enemy.getHp()-bullet.getDmg());
         bullets.removeIf(Bullet::isRdyToRemove);
     }
 
@@ -275,7 +286,6 @@ public class Level {
             if(isEnemyInTowerRange(area, e) && tower.canShoot()){
                 area.getTower().shoot();
                 bullets.add(new Bullet(area.getCenter()[0], area.getCenter()[1], tower.getTowerType().getFirePower(), tower.getTowerType().getImageNo(), e));
-                System.out.println("SHOOT");
             }
         });
     }

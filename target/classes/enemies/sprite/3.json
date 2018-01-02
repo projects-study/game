@@ -3,7 +3,7 @@
     "UP":[
       {
         "xFrom": 0,
-        "xTo": 16,
+        "xTo": 20,
         "yFrom": 60,
         "yTo": 80
       },
@@ -24,20 +24,20 @@
       {
         "xFrom": 0,
         "xTo": 20,
-        "yFrom": 0,
-        "yTo": 20
+        "yFrom": 20,
+        "yTo": 40
       },
       {
         "xFrom": 20,
         "xTo": 40,
         "yFrom": 20,
-        "yTo": 20
+        "yTo": 40
       },
       {
         "xFrom": 40,
         "xTo": 60,
         "yFrom": 20,
-        "yTo": 20
+        "yTo": 40
       }
     ],
     "RIGHT":[

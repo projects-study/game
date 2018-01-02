@@ -2,5 +2,6 @@
   "id": 3,
   "hp": 15,
   "speed": 3,
-  "cash": 10
+  "cash": 10,
+  "speed": 1
 }

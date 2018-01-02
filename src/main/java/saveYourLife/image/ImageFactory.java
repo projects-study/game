@@ -21,8 +21,10 @@ public class ImageFactory {
     private Map<Integer, BufferedImage> areas;
     private Map<Integer, Sprite> enemies;
     private BufferedImage menu;
+    private BufferedImage bar;
     private Map<Integer, BufferedImage> minis;
     private Map<Integer, BufferedImage> bullets;
+    private BufferedImage boomBullet;
 
     private ImageFactory() {
         areas = new HashMap<>();
@@ -78,11 +80,18 @@ public class ImageFactory {
             BufferedImage image = null;
             try {
                 image = ImageIO.read(file);
-                bullets.put(Integer.parseInt(file.getName().split("\\.")[0]), image);
+                if(!file.getName().split("\\.")[0].matches(".*[a-zA-Z]+.*"))
+                    bullets.put(Integer.parseInt(file.getName().split("\\.")[0]), image);
+                else
+                    boomBullet = image;
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    public BufferedImage getBoomBullet() {
+        return boomBullet;
     }
 
     private void loadMenuAndMinis(){
@@ -94,11 +103,18 @@ public class ImageFactory {
         File folder = new File("./src/images/menu");
         for (File file : folder.listFiles()) {
             try {
-                menu = ImageIO.read(file);
+                if(file.getName().split("\\.")[0].equals("kolo"))
+                    menu = ImageIO.read(file);
+                else
+                    bar = ImageIO.read(file);
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+    }
+
+    public BufferedImage getBar() {
+        return bar;
     }
 
     private void loadMinis(){
