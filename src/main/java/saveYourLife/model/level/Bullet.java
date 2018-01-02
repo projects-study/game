@@ -1,11 +1,15 @@
 package saveYourLife.model.level;
 
+import saveYourLife.image.ImageFactory;
 import saveYourLife.model.enemy.Enemy;
 
 import java.awt.*;
 import java.util.function.Predicate;
 
 public class Bullet {
+
+    private ImageFactory imageFactory = ImageFactory.getInstance();
+
     private double x;
     private double y;
     private int dmg;
@@ -77,8 +81,7 @@ public class Bullet {
     }
 
     public void draw(Graphics2D g) {
-        g.setColor(Color.BLACK);
-        g.fillRect((int) x - 2, (int) y - 2, 5, 5);
+        g.drawImage(imageFactory.getBullet(imageNr), (int)x, (int)y,null);
     }
 
     public Enemy getTarget() {

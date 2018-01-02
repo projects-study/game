@@ -10,10 +10,10 @@ public class EnemyLoader {
 
     private static ObjectMapper objectMapper = new ObjectMapper();
 
-    public static Enemy loadEnemy(int id){
+    public static Enemy loadEnemy(int id, float hpMultiplier){
         try {
             Enemy enemy = objectMapper.readValue(new File("./src/main/resources/enemies/"+ id +".json"), Enemy.class);
-
+            enemy.setHp((int)(enemy.getHp()*hpMultiplier));
             return enemy;
         } catch (IOException e) {
             e.printStackTrace();

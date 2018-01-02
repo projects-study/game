@@ -1,5 +1,7 @@
 package saveYourLife.model.level;
 
+import saveYourLife.enums.RuleType;
+import saveYourLife.enums.TowerType;
 import saveYourLife.loader.EnemyLoader;
 import saveYourLife.loader.JsonLevel;
 import saveYourLife.loader.JsonSquad;
@@ -27,6 +29,7 @@ public class Level {
     private List<Enemy> runningEnemies;
     private Map<Integer, List<Area>> paths;
     private List<Bullet> bullets;
+    private boolean ended;
 
     private long waveStartTime;
     private Map<Wave, Long> squadStartTimes;
@@ -58,7 +61,10 @@ public class Level {
                 squad.setDelay(jsonSquad.getDelay());
                 squad.setEnemies(new ArrayList<>());
                 for (Integer enemyId : jsonSquad.getEnemies()) {
-                    squad.getEnemies().add(EnemyLoader.loadEnemy(enemyId));
+                    float hpMultiplier = 1;
+                    if(getRule(RuleType.MONSTER_HP)!=null)
+                        hpMultiplier = getRule(RuleType.MONSTER_HP).getSingleValue();
+                    squad.getEnemies().add(EnemyLoader.loadEnemy(enemyId, hpMultiplier));
                 }
                 wave.getSquads().add(squad);
             }
@@ -67,6 +73,16 @@ public class Level {
         this.waveStartTime = System.nanoTime();
         this.squadStartTimes = new HashMap<>();
         this.bullets = new ArrayList<>();
+        Rule rule = getRule(RuleType.BAN_TOWER);
+        rule.getListValue().forEach(i -> {
+            for(TowerType tower: TowerType.values())
+                if(tower.getImageNo() == i)
+                    tower.setEnabled(false);
+        });
+    }
+
+    public Rule getRule(RuleType ruleType){
+        return rules.stream().filter(r -> r.getType().equals(ruleType)).findFirst().get();
     }
 
     public Area[][] getGrid() {
@@ -218,10 +234,22 @@ public class Level {
         updateTowers();
         updateBullets();
         updateEnemies();
+        if(waves.isEmpty() && runningEnemies.isEmpty())
+            ended = true;
+    }
+
+    public boolean isEnded(){
+        return ended;
     }
 
     private void updateEnemies() {
         runningEnemies.forEach(Enemy::update);
+        float cashMultiplier = 1;
+        if(getRule(RuleType.CASH_FOR_KILL)!=null)
+            cashMultiplier = getRule(RuleType.CASH_FOR_KILL).getSingleValue();
+        for(Enemy e:runningEnemies)
+            if(e.isReadyToRemove())
+                cash+=(int)(e.getCash()*cashMultiplier);
         runningEnemies.removeIf(Enemy::isReadyToRemove);
     }
 
@@ -242,7 +270,7 @@ public class Level {
             Tower tower = area.getTower();
             if(isEnemyInTowerRange(area, e) && tower.canShoot()){
                 area.getTower().shoot();
-                bullets.add(new Bullet(area.getCenter()[0], area.getCenter()[1], tower.getTowerType().getImageNo(), tower.getTowerType().getFirePower(), e));
+                bullets.add(new Bullet(area.getCenter()[0], area.getCenter()[1], tower.getTowerType().getFirePower(), tower.getTowerType().getImageNo(), e));
                 System.out.println("SHOOT");
             }
         });

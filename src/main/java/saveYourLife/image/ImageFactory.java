@@ -22,11 +22,13 @@ public class ImageFactory {
     private Map<Integer, Sprite> enemies;
     private BufferedImage menu;
     private Map<Integer, BufferedImage> minis;
+    private Map<Integer, BufferedImage> bullets;
 
     private ImageFactory() {
         areas = new HashMap<>();
         enemies = new HashMap<>();
         minis = new HashMap<>();
+        bullets = new HashMap<>();
         loadGraphics();
     }
 
@@ -38,6 +40,7 @@ public class ImageFactory {
         loadAreas();
         loadEnemies();
         loadMenuAndMinis();
+        loadBullets();
     }
 
     private void loadAreas() {
@@ -63,6 +66,19 @@ public class ImageFactory {
                 Sprite sprite = objectMapper.readValue(new File("./src/main/resources/enemies/sprite/" + id + ".json"), Sprite.class);
                 sprite.setImage(image);
                 enemies.put(Integer.parseInt(id), sprite);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void loadBullets(){
+        File folder = new File("./src/images/bullets");
+        for (File file : folder.listFiles()) {
+            BufferedImage image = null;
+            try {
+                image = ImageIO.read(file);
+                bullets.put(Integer.parseInt(file.getName().split("\\.")[0]), image);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -122,4 +138,6 @@ public class ImageFactory {
     public void setMinis(Map<Integer, BufferedImage> minis) {
         this.minis = minis;
     }
+
+    public BufferedImage getBullet(int id){ return bullets.get(id); }
 }

@@ -23,6 +23,7 @@ public class Enemy {
     private static ImageFactory imageFactory;
     private double frame = 0;
     private MoveDir moveDir;
+    private int cash;
 
     static{
         imageFactory = ImageFactory.getInstance();
@@ -99,6 +100,8 @@ public class Enemy {
         this.areaPosition = areaPosition;
     }
 
+    public int getCash(){ return cash; }
+
     public void update() {
         if (!path.isEmpty() && isAtArea.test(path.get(0))) {
             path.remove(0);
@@ -160,8 +163,6 @@ public class Enemy {
         int halfWidth = (xTo-xFrom)/2;
         int halfHeight = (yTo-yFrom)/2;
         g.drawImage(sprite.getImage(), x-halfWidth, y-halfHeight, x+halfWidth, y+halfHeight, xFrom, yFrom, xTo, yTo, null);
-
-//        g.setColor(Color.BLACK);
-//        g.fillRect(x-5, y-5, 10, 10);
+        g.drawString(hp+"", x, y);
     }
 }

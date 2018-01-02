@@ -1,36 +1,32 @@
 package saveYourLife.main;
 
 import saveYourLife.enums.TowerType;
-import saveYourLife.model.level.Tower;
 import saveYourLife.image.ImageFactory;
 import saveYourLife.loader.LevelFactory;
 import saveYourLife.model.level.Area;
 import saveYourLife.model.level.Level;
+import saveYourLife.model.level.Tower;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
+import java.util.List;
 
-public class GameMain extends JPanel implements Runnable, java.awt.event.MouseListener{
-
-    private static GameMain instance;
+public class GameMain extends JPanel implements Runnable, java.awt.event.MouseListener {
 
     private static final long serialVersionUID = -2318489391810394155L;
-
+    private static GameMain instance;
+    private static Level level;
     public final int WIDTH = 800;
     public final int HEIGHT = 600;
-
+    private final int FPS = 60;
     private Thread thread;
     private boolean running;
-
     private BufferedImage image;
     private Graphics2D g;
-
-    private final int FPS = 60;
     private double averageFPS;
-
-    private static Level level;
     private ImageFactory imageFactory;
 
     private int menuX = -1;
@@ -48,6 +44,10 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
         return instance == null ? instance = new GameMain() : instance;
     }
 
+    public static Level getLevel() {
+        return level;
+    }
+
     public void addNotify() {
         super.addNotify();
         if (thread == null) {
@@ -59,6 +59,7 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
     public void init() {
         imageFactory = ImageFactory.getInstance();
         level = LevelFactory.loadLevel();
+        g.setFont(new Font("default", Font.BOLD, 12));
         this.addMouseListener(this);
     }
 
@@ -101,6 +102,9 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
 
     private synchronized void gameUpdate() {
         level.update();
+        if(level.isEnded()){
+            level = LevelFactory.loadLevel();
+        }
     }
 
     private synchronized void gameDraw() {
@@ -114,85 +118,92 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
         g.fillRect(0, 0, WIDTH, HEIGHT);
         level.draw(g);
         renderBuildMenu();
+        g.setColor(Color.WHITE);
+        g.drawString(level.getCash()+"", 10, 10);
     }
 
     private void renderBuildMenu() {
-        if(menuX>=0 && menuY>=0){
-            int x = menuX*50-35;
-            int y = menuY*50+50-35;
+        if (menuX >= 0 && menuY >= 0) {
+            int x = menuX * 50 - 35;
+            int y = menuY * 50 + 50 - 35;
             g.drawImage(imageFactory.getMenu(), x, y, null);
-            x+=45;
-            y+=45;
-            int angle = 360/ TowerType.values().length;
+            x += 45;
+            y += 45;
+            List<TowerType> towerTypes = new ArrayList<>();
+            for (TowerType towerType : TowerType.values())
+                if (towerType.isEnabled())
+                    towerTypes.add(towerType);
+            int angle = 360 / towerTypes.size();
             int r = 50;
             double[] v = {0, -1};
-            for(TowerType tower: TowerType.values()){
-                if(tower.isEnabled()) {
-                    g.drawImage(imageFactory.getMinis().get(tower.getImageNo()), (int) (v[0] * r + x), (int) (v[1] * r + y), null);
-                    double tmpX = v[0];
-                    double tmpY = v[1];
-                    v[0] = tmpX * Math.cos(Math.toRadians(angle)) - tmpY * Math.sin(Math.toRadians(angle));
-                    v[1] = tmpX * Math.sin(Math.toRadians(angle)) + tmpY * Math.cos(Math.toRadians(angle));
-                }
+            for (TowerType tower : towerTypes) {
+                g.drawImage(imageFactory.getMinis().get(tower.getImageNo()), (int) (v[0] * r + x), (int) (v[1] * r + y), null);
+                if (level.getCash() >= tower.getCost())
+                    g.setColor(Color.GREEN);
+                else
+                    g.setColor(Color.RED);
+                g.drawString(tower.getCost() + " $", (int) (v[0] * r + x), (int) (v[1] * r + y) + 40);
+                double tmpX = v[0];
+                double tmpY = v[1];
+                v[0] = tmpX * Math.cos(Math.toRadians(angle)) - tmpY * Math.sin(Math.toRadians(angle));
+                v[1] = tmpX * Math.sin(Math.toRadians(angle)) + tmpY * Math.cos(Math.toRadians(angle));
             }
         }
     }
 
-    public static Level getLevel(){
-        return level;
-    }
-
-
     @Override
     public void mouseClicked(MouseEvent e) {
         int x = e.getX();
-        int y = e.getY()-50;
-        int indX = x/50+1;
-        int indY = y/50+1;
-        if(!buildMenu){
-            if(level.getGrid()[indY][indX].isTowerArea.getAsBoolean()){
-                menuX=indX-1;
-                menuY=indY-1;
-                buildMenu=true;
-            }else{
-                menuX=-1;
-                menuY=-1;
-                buildMenu=false;
+        int y = e.getY() - 50;
+        int indX = x / 50 + 1;
+        int indY = y / 50 + 1;
+        if (!buildMenu) {
+            if (level.getGrid()[indY][indX].isTowerArea.getAsBoolean()) {
+                menuX = indX - 1;
+                menuY = indY - 1;
+                buildMenu = true;
+            } else {
+                menuX = -1;
+                menuY = -1;
+                buildMenu = false;
             }
-        }else{
-            if(level.getGrid()[indY][indX].isTowerArea.getAsBoolean()){
-                menuX=indX-1;
-                menuY=indY-1;
-            }else{
+        } else {
+            if (level.getGrid()[indY][indX].isTowerArea.getAsBoolean()) {
+                menuX = indX - 1;
+                menuY = indY - 1;
+            } else {
                 clickTower(e.getX(), e.getY());
-                menuX=-1;
-                menuY=-1;
-                buildMenu=false;
+                menuX = -1;
+                menuY = -1;
+                buildMenu = false;
             }
         }
 
     }
 
     private void clickTower(int mx, int my) {
-        int x = menuX*50+10;
-        int y = menuY*50+60;
-        int angle = 360/TowerType.values().length;
+        int x = menuX * 50 + 10;
+        int y = menuY * 50 + 60;
+        List<TowerType> towerTypes = new ArrayList<>();
+        for (TowerType towerType : TowerType.values())
+            if (towerType.isEnabled())
+                towerTypes.add(towerType);
+        int angle = 360 / towerTypes.size();
         int r = 50;
         double[] v = {0, -1};
-        for(TowerType tower: TowerType.values()){
-            if(tower.isEnabled()) {
-                int towerX = (int) (v[0] * r + x);
-                int towerY = (int) (v[1] * r + y);
-                double tmpX = v[0];
-                double tmpY = v[1];
-                v[0] = tmpX * Math.cos(Math.toRadians(angle)) - tmpY * Math.sin(Math.toRadians(angle));
-                v[1] = tmpX * Math.sin(Math.toRadians(angle)) + tmpY * Math.cos(Math.toRadians(angle));
-                if (Math.abs(towerX - mx) <= 20 && Math.abs(towerY - my) <= 20) {
-                    int indX = x / 50 + 1;
-                    int indY = (y - 50) / 50 + 1;
-                    Area area = level.getGrid()[indY][indX];
-                    area.setTower(new Tower(tower));
-                }
+        for (TowerType tower : towerTypes) {
+            int towerX = (int) (v[0] * r + x);
+            int towerY = (int) (v[1] * r + y);
+            double tmpX = v[0];
+            double tmpY = v[1];
+            v[0] = tmpX * Math.cos(Math.toRadians(angle)) - tmpY * Math.sin(Math.toRadians(angle));
+            v[1] = tmpX * Math.sin(Math.toRadians(angle)) + tmpY * Math.cos(Math.toRadians(angle));
+            if (Math.abs(towerX - mx) <= 20 && Math.abs(towerY - my) <= 20 && level.getCash() >= tower.getCost()) {
+                int indX = x / 50 + 1;
+                int indY = (y - 50) / 50 + 1;
+                level.setCash(level.getCash() - tower.getCost());
+                Area area = level.getGrid()[indY][indX];
+                area.setTower(new Tower(tower));
             }
         }
     }

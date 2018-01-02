@@ -21,7 +21,7 @@
     },
     {
       "type":"BAN_TOWER",
-      "listValue": [2,3]
+      "listValue": [205,204]
     },
     {
       "type":"CASH_FOR_KILL",
