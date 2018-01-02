@@ -247,9 +247,13 @@ public class Level {
         float cashMultiplier = 1;
         if(getRule(RuleType.CASH_FOR_KILL)!=null)
             cashMultiplier = getRule(RuleType.CASH_FOR_KILL).getSingleValue();
-        for(Enemy e:runningEnemies)
+        for(Enemy e:runningEnemies){
             if(e.isReadyToRemove())
-                cash+=(int)(e.getCash()*cashMultiplier);
+                if(e.getPath().isEmpty())
+                    life--;
+                else
+                    cash+=(int)(e.getCash()*cashMultiplier);
+        }
         runningEnemies.removeIf(Enemy::isReadyToRemove);
     }
 

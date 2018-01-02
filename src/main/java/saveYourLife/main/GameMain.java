@@ -59,7 +59,6 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
     public void init() {
         imageFactory = ImageFactory.getInstance();
         level = LevelFactory.loadLevel();
-        g.setFont(new Font("default", Font.BOLD, 12));
         this.addMouseListener(this);
     }
 
@@ -101,7 +100,8 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
     }
 
     private synchronized void gameUpdate() {
-        level.update();
+        if(level.getLife()>0)
+            level.update();
         if(level.isEnded()){
             level = LevelFactory.loadLevel();
         }
@@ -119,7 +119,14 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
         level.draw(g);
         renderBuildMenu();
         g.setColor(Color.WHITE);
+        g.setFont(new Font("default", Font.BOLD, 12));
         g.drawString(level.getCash()+"", 10, 10);
+        g.drawString(level.getLife()+"", 30, 30);
+        if(level.getLife()<=0){
+            g.setFont(new Font("default", Font.BOLD, 60));
+            g.setColor(Color.RED);
+            g.drawString("GAME OVER!", 300, 300);
+        }
     }
 
     private void renderBuildMenu() {
@@ -129,6 +136,7 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
             g.drawImage(imageFactory.getMenu(), x, y, null);
             x += 45;
             y += 45;
+            g.setFont(new Font("default", Font.BOLD, 12));
             List<TowerType> towerTypes = new ArrayList<>();
             for (TowerType towerType : TowerType.values())
                 if (towerType.isEnabled())

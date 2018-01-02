@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be92d357-07fe-4b86-a439-ba9081339862" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/enums/TowerType.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/enums/TowerType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/loader/EnemyLoader.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/loader/EnemyLoader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Bullet.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Bullet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/1.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/1.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/2.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/2.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/3.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/3.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/4.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/5.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/5.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/6.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/6.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/7.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/7.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/1.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/1.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/2.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/2.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/3.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/3.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/4.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/5.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/5.json" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/images/bullets/pociski202.png" afterPath="$PROJECT_DIR$/src/images/bullets/202.png" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,8 +42,8 @@
           <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="474">
-                  <caret line="160" column="41" lean-forward="false" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
+                <state relative-caret-position="357">
+                  <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -73,8 +54,8 @@
           <file leaf-file-name="GameMain.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="427">
-                  <caret line="105" column="38" lean-forward="true" selection-start-line="105" selection-start-column="38" selection-end-line="105" selection-end-column="38" />
+                <state relative-caret-position="257">
+                  <caret line="125" column="54" lean-forward="false" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -89,8 +70,8 @@
           <file leaf-file-name="Level.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="511">
-                  <caret line="241" column="21" lean-forward="false" selection-start-line="241" selection-start-column="21" selection-end-line="241" selection-end-column="21" />
+                <state relative-caret-position="578">
+                  <caret line="252" column="27" lean-forward="false" selection-start-line="252" selection-start-column="27" selection-end-line="252" selection-end-column="27" />
                   <folding>
                     <element signature="e#8301#8302#0" expanded="true" />
                     <element signature="e#8329#8330#0" expanded="true" />
@@ -685,7 +666,7 @@
       <workItem from="1514447671974" duration="2580000" />
       <workItem from="1514538281291" duration="5336000" />
       <workItem from="1514638577753" duration="124000" />
-      <workItem from="1514890791155" duration="4033000" />
+      <workItem from="1514890791155" duration="4730000" />
     </task>
     <task id="LOCAL-00001" summary="Prepared first version of level loading">
       <created>1508006696092</created>
@@ -698,7 +679,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78209000" />
+    <option name="totallyTimeSpent" value="78906000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
@@ -1042,16 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="160" column="41" lean-forward="false" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Area.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1105,17 +1076,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="241" column="21" lean-forward="false" selection-start-line="241" selection-start-column="21" selection-end-line="241" selection-end-column="21" />
-          <folding>
-            <element signature="e#8301#8302#0" expanded="true" />
-            <element signature="e#8329#8330#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/loader/LevelFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1124,10 +1084,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="252" column="27" lean-forward="false" selection-start-line="252" selection-start-column="27" selection-end-line="252" selection-end-column="27" />
+          <folding>
+            <element signature="e#8301#8302#0" expanded="true" />
+            <element signature="e#8329#8330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="105" column="38" lean-forward="true" selection-start-line="105" selection-start-column="38" selection-end-line="105" selection-end-column="38" />
+        <state relative-caret-position="257">
+          <caret line="125" column="54" lean-forward="false" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
