@@ -2,8 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be92d357-07fe-4b86-a439-ba9081339862" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/bullets/203.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/bullets/204.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/bullets/204b.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/bullets/205.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/menu/pasek.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/images/bullets/202.png" afterPath="$PROJECT_DIR$/src/images/bullets/202.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/images/enemies/4.png" afterPath="$PROJECT_DIR$/src/images/enemies/4.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/1.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/2.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/3.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/3.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/4.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/5.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/5.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/6.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/6.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/7.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/7.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/sprite/3.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/sprite/3.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/1.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/2.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/3.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/3.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/4.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/5.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/5.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/6.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/6.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/7.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/7.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/8.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/8.json" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,7 +52,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Area.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="0">
-                  <caret line="0" column="33" lean-forward="true" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+                  <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -43,7 +64,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="357">
-                  <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+                  <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -54,7 +75,7 @@
           <file leaf-file-name="GameMain.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="257">
+                <state relative-caret-position="-151">
                   <caret line="125" column="54" lean-forward="false" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
                   <folding>
                     <element signature="imports" expanded="true" />
@@ -97,7 +118,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/loader/EnemyLoader.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="221">
-                  <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+                  <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
                   <folding />
                 </state>
               </provider>
@@ -121,7 +142,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="-1070">
-                  <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+                  <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
                   <folding>
                     <element signature="e#3470#3471#0" expanded="true" />
                     <element signature="e#3506#3507#0" expanded="true" />
@@ -292,6 +313,11 @@
         <option value="$PROJECT_DIR$/src/main/resources/levels/3.json" />
         <option value="$PROJECT_DIR$/src/main/resources/levels/4.json" />
         <option value="$PROJECT_DIR$/src/main/resources/levels/5.json" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/loader/EnemyLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/enums/TowerType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java" />
         <option value="$PROJECT_DIR$/src/main/resources/enemies/1.json" />
         <option value="$PROJECT_DIR$/src/main/resources/enemies/2.json" />
         <option value="$PROJECT_DIR$/src/main/resources/enemies/3.json" />
@@ -299,11 +325,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/enemies/5.json" />
         <option value="$PROJECT_DIR$/src/main/resources/enemies/6.json" />
         <option value="$PROJECT_DIR$/src/main/resources/enemies/7.json" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/loader/EnemyLoader.java" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/enums/TowerType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java" />
       </list>
     </option>
   </component>
@@ -666,7 +687,7 @@
       <workItem from="1514447671974" duration="2580000" />
       <workItem from="1514538281291" duration="5336000" />
       <workItem from="1514638577753" duration="124000" />
-      <workItem from="1514890791155" duration="4730000" />
+      <workItem from="1514890791155" duration="4905000" />
     </task>
     <task id="LOCAL-00001" summary="Prepared first version of level loading">
       <created>1508006696092</created>
@@ -679,7 +700,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78906000" />
+    <option name="totallyTimeSpent" value="79081000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
@@ -907,7 +928,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1070">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
             <element signature="e#3470#3471#0" expanded="true" />
             <element signature="e#3506#3507#0" expanded="true" />
@@ -955,62 +976,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/7.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/6.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/5.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/1.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/4.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="12" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Bullet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
@@ -1026,7 +991,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Area.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="33" lean-forward="true" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+          <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1071,7 +1036,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/loader/EnemyLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="17" column="33" lean-forward="true" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
+          <caret line="17" column="33" lean-forward="false" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1087,7 +1052,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="21" column="34" lean-forward="true" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
+          <caret line="21" column="34" lean-forward="false" selection-start-line="21" selection-start-column="34" selection-end-line="21" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1105,9 +1070,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/3.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/5.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/4.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/6.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/7.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
+        <state relative-caret-position="-151">
           <caret line="125" column="54" lean-forward="false" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
