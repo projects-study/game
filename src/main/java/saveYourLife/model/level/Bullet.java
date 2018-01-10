@@ -75,8 +75,8 @@ public class Bullet {
     public void update() {
         if(boomTime == null){
             calculateNewV();
-            x += v[0] * 6;
-            y += v[1] * 6;
+            x += v[0] * 4;
+            y += v[1] * 4;
         }
         if (isTargetHit.test(target) && boomTime==null) {
             target.setHp(target.getHp() - dmg);

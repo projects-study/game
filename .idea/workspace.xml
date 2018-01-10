@@ -2,23 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="be92d357-07fe-4b86-a439-ba9081339862" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/enums/MovingEffect.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/enums/MovingEffect.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/enums/MovingEffect.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/enums/TowerType.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/enums/TowerType.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Bullet.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Bullet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Tower.java" afterPath="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Tower.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/1.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/2.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/3.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/3.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/4.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/5.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/5.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/6.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/6.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/enemies/7.json" afterPath="$PROJECT_DIR$/src/main/resources/enemies/7.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/1.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/1.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/2.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/2.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/3.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/3.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/4.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/5.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/5.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/6.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/6.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/7.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/7.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/levels/8.json" afterPath="$PROJECT_DIR$/src/main/resources/levels/8.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/enemies/1.json" afterPath="$PROJECT_DIR$/target/classes/enemies/1.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/enemies/2.json" afterPath="$PROJECT_DIR$/target/classes/enemies/2.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/enemies/3.json" afterPath="$PROJECT_DIR$/target/classes/enemies/3.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/enemies/4.json" afterPath="$PROJECT_DIR$/target/classes/enemies/4.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/enemies/5.json" afterPath="$PROJECT_DIR$/target/classes/enemies/5.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/enemies/6.json" afterPath="$PROJECT_DIR$/target/classes/enemies/6.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/enemies/7.json" afterPath="$PROJECT_DIR$/target/classes/enemies/7.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/enemies/sprite/3.json" afterPath="$PROJECT_DIR$/target/classes/enemies/sprite/3.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/levels/1.json" afterPath="$PROJECT_DIR$/target/classes/levels/1.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/levels/2.json" afterPath="$PROJECT_DIR$/target/classes/levels/2.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/levels/3.json" afterPath="$PROJECT_DIR$/target/classes/levels/3.json" />
@@ -36,67 +48,103 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/SaveYourLife$App.coverage" NAME="App Coverage Results" MODIFIED="1514909458877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>saveYourLife.main.*</FILTER>
+    </SUITE>
+  </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4820642">
+    <splitter split-orientation="horizontal" split-proportion="0.6230722">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="TowerType.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/enums/TowerType.java">
+          <file leaf-file-name="GameMain.java" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2">
-                  <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+                <state relative-caret-position="543">
+                  <caret line="241" column="56" lean-forward="false" selection-start-line="241" selection-start-column="56" selection-end-line="241" selection-end-column="56" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="7.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/levels/7.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-342">
+                  <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Area.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Area.java">
+          <file leaf-file-name="8.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/levels/8.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="0">
-                  <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                <state relative-caret-position="695">
+                  <caret line="234" column="23" lean-forward="true" selection-start-line="234" selection-start-column="23" selection-end-line="234" selection-end-column="23" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java">
+          <file leaf-file-name="1.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/levels/1.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="542">
-                  <caret line="182" column="55" lean-forward="false" selection-start-line="182" selection-start-column="55" selection-end-line="182" selection-end-column="55" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                <state relative-caret-position="255">
+                  <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="17" selection-end-column="4" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="MovingEffect.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/enums/MovingEffect.java">
+          <file leaf-file-name="2.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/levels/2.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="30" />
-                  <folding>
-                    <element signature="e#355#356#0" expanded="true" />
-                    <element signature="e#392#393#0" expanded="true" />
-                    <element signature="e#431#432#0" expanded="true" />
-                    <element signature="e#468#469#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="151">
+                  <caret line="153" column="16" lean-forward="true" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="GameMain.java" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java">
+          <file leaf-file-name="1.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/1.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="440">
-                  <caret line="134" column="60" lean-forward="false" selection-start-line="134" selection-start-column="60" selection-end-line="134" selection-end-column="60" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
+                <state relative-caret-position="85">
+                  <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="3.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/levels/3.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="17" selection-end-column="4" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="4.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/levels/4.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="255">
+                  <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="17" selection-end-column="4" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="6.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/levels/6.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="593">
+                  <caret line="184" column="5" lean-forward="true" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -105,39 +153,83 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Level.java" pinned="false" current-in-tab="true">
+          <file leaf-file-name="Level.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="237">
-                  <caret line="288" column="13" lean-forward="true" selection-start-line="288" selection-start-column="13" selection-end-line="288" selection-end-column="13" />
+                <state relative-caret-position="576">
+                  <caret line="239" column="82" lean-forward="false" selection-start-line="239" selection-start-column="82" selection-end-line="239" selection-end-column="82" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="ImageFactory.java" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="364">
+                  <caret line="83" column="89" lean-forward="false" selection-start-line="83" selection-start-column="89" selection-end-line="83" selection-end-column="89" />
                   <folding>
-                    <element signature="e#3274#3275#0" expanded="true" />
-                    <element signature="e#3307#3308#0" expanded="true" />
-                    <element signature="e#8430#8431#0" expanded="true" />
-                    <element signature="e#8458#8459#0" expanded="true" />
+                    <element signature="imports" expanded="true" />
                   </folding>
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="Tower.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Tower.java">
+          <file leaf-file-name="2.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/2.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="476">
-                  <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#599#600#0" expanded="true" />
-                    <element signature="e#653#654#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="51">
+                  <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="EnemyLoader.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/loader/EnemyLoader.java">
+          <file leaf-file-name="3.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/3.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="187">
-                  <caret line="15" column="59" lean-forward="true" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+                <state relative-caret-position="51">
+                  <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="4.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/4.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="51">
+                  <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="5.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/5.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="6.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/6.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="68">
+                  <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="7.json" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/7.json">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="51">
+                  <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
                   <folding />
                 </state>
               </provider>
@@ -146,73 +238,11 @@
           <file leaf-file-name="Bullet.java" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Bullet.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="372">
-                  <caret line="89" column="57" lean-forward="false" selection-start-line="89" selection-start-column="57" selection-end-line="89" selection-end-column="57" />
+                <state relative-caret-position="85">
+                  <caret line="78" column="25" lean-forward="false" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ImageFactory.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="476">
-                  <caret line="93" column="8" lean-forward="false" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="26" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#2830#2831#0" expanded="true" />
-                    <element signature="e#2863#2864#0" expanded="true" />
-                    <element signature="e#3418#3419#0" expanded="true" />
-                    <element signature="e#3444#3445#0" expanded="true" />
-                    <element signature="e#3958#3959#0" expanded="true" />
-                    <element signature="e#3994#3995#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Sprite.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/image/Sprite.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="102">
-                  <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                    <element signature="e#460#461#0" expanded="true" />
-                    <element signature="e#500#501#0" expanded="true" />
-                    <element signature="e#539#540#0" expanded="true" />
-                    <element signature="e#567#568#0" expanded="true" />
-                    <element signature="e#616#617#0" expanded="true" />
-                    <element signature="e#650#651#0" expanded="true" />
-                    <element signature="e#707#708#0" expanded="true" />
-                    <element signature="e#736#737#0" expanded="true" />
-                    <element signature="e#804#805#0" expanded="true" />
-                    <element signature="e#840#841#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Frame.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/image/Frame.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="136">
-                  <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#193#194#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="MoveDir.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/enums/MoveDir.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="51">
-                  <caret line="3" column="25" lean-forward="false" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-                  <folding />
                 </state>
               </provider>
             </entry>
@@ -300,7 +330,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/levels/2.txt" />
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/map/LevelFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/map/Map.java" />
         <option value="$PROJECT_DIR$/src/main/resources/levels/3.txt" />
@@ -318,7 +347,6 @@
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/loader/FileLoader.java" />
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Squad.java" />
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/loader/LevelFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/levels/7.json" />
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/listener/mouse/MouseListener.java" />
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/enums/MoveDir.java" />
         <option value="$PROJECT_DIR$/src/images/enemies/json/1.json" />
@@ -328,28 +356,31 @@
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/BulletFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/enums/Tower.java" />
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Area.java" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/loader/EnemyLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/enums/MovingEffects.java" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java" />
         <option value="$PROJECT_DIR$/src/main/resources/levels/1.json" />
-        <option value="$PROJECT_DIR$/src/main/resources/levels/2.json" />
         <option value="$PROJECT_DIR$/src/main/resources/levels/3.json" />
         <option value="$PROJECT_DIR$/src/main/resources/levels/4.json" />
-        <option value="$PROJECT_DIR$/src/main/resources/levels/5.json" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/loader/EnemyLoader.java" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/enums/TowerType.java" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Bullet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/enums/MovingEffect.java" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java" />
         <option value="$PROJECT_DIR$/src/main/resources/enemies/1.json" />
         <option value="$PROJECT_DIR$/src/main/resources/enemies/2.json" />
         <option value="$PROJECT_DIR$/src/main/resources/enemies/3.json" />
         <option value="$PROJECT_DIR$/src/main/resources/enemies/4.json" />
-        <option value="$PROJECT_DIR$/src/main/resources/enemies/5.json" />
-        <option value="$PROJECT_DIR$/src/main/resources/enemies/6.json" />
         <option value="$PROJECT_DIR$/src/main/resources/enemies/7.json" />
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Tower.java" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/enums/MovingEffects.java" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/enums/MovingEffect.java" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/enums/TowerType.java" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Bullet.java" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java" />
-        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java" />
         <option value="$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/levels/7.json" />
+        <option value="$PROJECT_DIR$/src/main/resources/enemies/5.json" />
+        <option value="$PROJECT_DIR$/src/main/resources/levels/6.json" />
+        <option value="$PROJECT_DIR$/src/main/resources/enemies/6.json" />
+        <option value="$PROJECT_DIR$/src/main/resources/levels/2.json" />
+        <option value="$PROJECT_DIR$/src/main/resources/levels/8.json" />
+        <option value="$PROJECT_DIR$/src/main/resources/levels/5.json" />
+        <option value="$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java" />
       </list>
     </option>
   </component>
@@ -387,6 +418,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -532,10 +566,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -719,7 +750,8 @@
       <workItem from="1514447671974" duration="2580000" />
       <workItem from="1514538281291" duration="5336000" />
       <workItem from="1514638577753" duration="124000" />
-      <workItem from="1514890791155" duration="8619000" />
+      <workItem from="1514890791155" duration="9212000" />
+      <workItem from="1514905976427" duration="6291000" />
     </task>
     <task id="LOCAL-00001" summary="Prepared first version of level loading">
       <created>1508006696092</created>
@@ -732,7 +764,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82795000" />
+    <option name="totallyTimeSpent" value="89679000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1874" height="1096" extended-state="6" />
@@ -747,13 +779,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17395727" sideWeight="0.50215286" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22685656" sideWeight="0.49784714" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22685656" sideWeight="0.49784714" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31485468" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12755652" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24415056" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -765,6 +797,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497309" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24415056" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -783,20 +816,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/loader/LevelFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="17" column="30" lean-forward="true" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/main/App.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -880,29 +899,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/7.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="8" column="68" lean-forward="false" selection-start-line="8" selection-start-column="68" selection-end-line="8" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/image/Sprite.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="14" column="15" lean-forward="false" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#460#461#0" expanded="true" />
-            <element signature="e#500#501#0" expanded="true" />
-            <element signature="e#539#540#0" expanded="true" />
-            <element signature="e#567#568#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-            <element signature="e#707#708#0" expanded="true" />
-            <element signature="e#736#737#0" expanded="true" />
-            <element signature="e#804#805#0" expanded="true" />
-            <element signature="e#840#841#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#460#461#0" expanded="false" />
+            <element signature="e#500#501#0" expanded="false" />
+            <element signature="e#539#540#0" expanded="false" />
+            <element signature="e#567#568#0" expanded="false" />
+            <element signature="e#616#617#0" expanded="false" />
+            <element signature="e#650#651#0" expanded="false" />
+            <element signature="e#707#708#0" expanded="false" />
+            <element signature="e#736#737#0" expanded="false" />
+            <element signature="e#804#805#0" expanded="false" />
+            <element signature="e#840#841#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -926,7 +938,7 @@
         <state relative-caret-position="136">
           <caret line="8" column="27" lean-forward="false" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
           <folding>
-            <element signature="e#193#194#0" expanded="true" />
+            <element signature="e#193#194#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -937,38 +949,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="14" lean-forward="false" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/3.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/4.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="27" lean-forward="false" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/5.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -996,31 +976,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/2.json">
+    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/Integer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        <state relative-caret-position="245">
+          <caret line="651" column="0" lean-forward="false" selection-start-line="651" selection-start-column="0" selection-end-line="651" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/loader/EnemyLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="59" lean-forward="false" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/enums/MovingEffect.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="20" lean-forward="false" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="182" column="55" lean-forward="false" selection-start-line="182" selection-start-column="55" selection-end-line="182" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="83" column="89" lean-forward="false" selection-start-line="83" selection-start-column="89" selection-end-line="83" selection-end-column="89" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Bullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="78" column="25" lean-forward="false" selection-start-line="78" selection-start-column="25" selection-end-line="78" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/enums/TowerType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Area.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Tower.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="559">
+          <caret line="46" column="14" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+          <folding>
+            <element signature="e#917#918#0" expanded="true" />
+            <element signature="e#943#944#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+            <element signature="e#990#991#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="239" column="82" lean-forward="false" selection-start-line="239" selection-start-column="82" selection-end-line="239" selection-end-column="82" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/3.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="12" lean-forward="false" selection-start-line="5" selection-start-column="12" selection-end-line="5" selection-end-column="12" />
+        <state relative-caret-position="51">
+          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/5.json">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/2.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        <state relative-caret-position="51">
+          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/4.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="11" lean-forward="false" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/5.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
@@ -1038,141 +1119,82 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/7.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk-9/lib/src.zip!/java.base/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="651" column="0" lean-forward="false" selection-start-line="651" selection-start-column="0" selection-end-line="651" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Area.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/enums/TowerType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2">
-          <caret line="6" column="20" lean-forward="false" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Tower.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="38" column="0" lean-forward="true" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="e#599#600#0" expanded="true" />
-            <element signature="e#653#654#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/loader/EnemyLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="15" column="59" lean-forward="true" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/image/ImageFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="93" column="8" lean-forward="false" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2830#2831#0" expanded="true" />
-            <element signature="e#2863#2864#0" expanded="true" />
-            <element signature="e#3418#3419#0" expanded="true" />
-            <element signature="e#3444#3445#0" expanded="true" />
-            <element signature="e#3958#3959#0" expanded="true" />
-            <element signature="e#3994#3995#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Bullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="89" column="57" lean-forward="false" selection-start-line="89" selection-start-column="57" selection-end-line="89" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/enemy/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="542">
-          <caret line="182" column="55" lean-forward="false" selection-start-line="182" selection-start-column="55" selection-end-line="182" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/enums/MovingEffect.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
-          <caret line="3" column="30" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="30" />
-          <folding>
-            <element signature="e#355#356#0" expanded="true" />
-            <element signature="e#392#393#0" expanded="true" />
-            <element signature="e#431#432#0" expanded="true" />
-            <element signature="e#468#469#0" expanded="true" />
-          </folding>
+          <caret line="3" column="12" lean-forward="false" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/enemies/1.json">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/6.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        <state relative-caret-position="593">
+          <caret line="184" column="5" lean-forward="true" selection-start-line="184" selection-start-column="5" selection-end-line="184" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/5.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2397">
+          <caret line="141" column="1" lean-forward="false" selection-start-line="141" selection-start-column="1" selection-end-line="141" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/4.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="17" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/3.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="17" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/2.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="153" column="16" lean-forward="true" selection-start-line="153" selection-start-column="16" selection-end-line="153" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/1.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="17" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/8.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="695">
+          <caret line="234" column="23" lean-forward="true" selection-start-line="234" selection-start-column="23" selection-end-line="234" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/7.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-342">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/main/GameMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="134" column="60" lean-forward="false" selection-start-line="134" selection-start-column="60" selection-end-line="134" selection-end-column="60" />
+        <state relative-caret-position="543">
+          <caret line="241" column="56" lean-forward="false" selection-start-line="241" selection-start-column="56" selection-end-line="241" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/levels/1.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="16" column="11" lean-forward="true" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/saveYourLife/model/level/Level.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="288" column="13" lean-forward="true" selection-start-line="288" selection-start-column="13" selection-end-line="288" selection-end-column="13" />
-          <folding>
-            <element signature="e#3274#3275#0" expanded="true" />
-            <element signature="e#3307#3308#0" expanded="true" />
-            <element signature="e#8430#8431#0" expanded="true" />
-            <element signature="e#8458#8459#0" expanded="true" />
           </folding>
         </state>
       </provider>

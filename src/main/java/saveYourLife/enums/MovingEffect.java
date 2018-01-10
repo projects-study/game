@@ -1,7 +1,7 @@
 package saveYourLife.enums;
 
 public enum MovingEffect {
-    SLOWDOWN(0.5F, 1000000000L);
+    SLOWDOWN(0.5F, 3000000000L);
 
     private float effectStrength;
     private Long effectDuration;

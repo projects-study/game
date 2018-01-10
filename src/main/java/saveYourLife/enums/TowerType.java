@@ -1,10 +1,10 @@
 package saveYourLife.enums;
 
 public enum TowerType {
-    MAGIC(202, 100D, 10, 1000000000L, 10),
-    SLOWING(203, 100D, 1, 1000000000L, 10),
-    ARROW(205, 100D, 10, 1000000000L, 10),
-    AOE(204, 100D, 5, 1000000000L, 10);
+    MAGIC(202, 100D, 20, 2000000000L, 150),
+    SLOWING(203, 100D, 1, 1000000000L, 50),
+    ARROW(205, 100D, 4, 500000000L, 90),
+    AOE(204, 100D, 10, 2500000000L, 200);
 
     private final int imageNo;
     private boolean enabled;

@@ -100,9 +100,9 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
     }
 
     private synchronized void gameUpdate() {
-        if(level.getLife()>0)
+        if (level.getLife() > 0)
             level.update();
-        if(level.isEnded()){
+        if (level.isEnded()) {
             level = LevelFactory.loadLevel();
         }
     }
@@ -116,27 +116,28 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
     private synchronized void gameRender() {
         level.draw(g);
         renderBuildMenu();
-        if(level.getLife()<=0){
+        if (level.getLife() <= 0) {
             g.setFont(new Font("default", Font.BOLD, 60));
             g.setColor(Color.RED);
             g.drawString("GAME OVER!", 300, 300);
         }
-        g.drawImage(imageFactory.getBar(),0,0,null);
+        g.drawImage(imageFactory.getBar(), 0, 0, null);
         g.setColor(Color.WHITE);
         renderBar();
 
     }
 
-    private synchronized void renderBar(){
+    private synchronized void renderBar() {
         g.setColor(Color.BLACK);
         g.setFont(new Font("default", Font.BOLD, 16));
-        g.drawString("WAVE: "+(level.getTotalWaves()-level.getWaves().size())+" / "+level.getTotalWaves(), 10, 25);
-        g.drawString("HP: "+level.getLife(), 200, 25);
-        g.drawString("CASH: "+level.getCash()+" $ ", 300, 25);
+        g.drawString("WAVE: " + (level.getTotalWaves() - level.getWaves().size()) + " / " + level.getTotalWaves(), 10, 25);
+        g.drawString("HP: " + level.getLife(), 200, 25);
+        g.drawString("CASH: " + level.getCash() + " $ ", 300, 25);
     }
 
     private void renderBuildMenu() {
         if (menuX >= 0 && menuY >= 0) {
+            Area area = level.getGrid()[menuY+1][menuX+1];
             int x = menuX * 50 - 35;
             int y = menuY * 50 + 50 - 35;
             g.drawImage(imageFactory.getMenu(), x, y, null);
@@ -152,11 +153,20 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
             double[] v = {0, -1};
             for (TowerType tower : towerTypes) {
                 g.drawImage(imageFactory.getMinis().get(tower.getImageNo()), (int) (v[0] * r + x), (int) (v[1] * r + y), null);
-                if (level.getCash() >= tower.getCost())
+                int cost = tower.getCost();
+                if (area.getTower() != null && area.getTower().getTowerType().equals(tower)) {
+                    cost += area.getTower().getLvl() * 50;
+                    if (area.getTower().getLvl() == 3)
+                        cost = -1;
+                }
+                if (level.getCash() >= cost && cost > 0)
                     g.setColor(Color.GREEN);
                 else
                     g.setColor(Color.RED);
-                g.drawString(tower.getCost() + " $", (int) (v[0] * r + x), (int) (v[1] * r + y) + 40);
+                if (area.getTower() == null || (area.getTower() != null && cost > 0))
+                    g.drawString(cost + " $", (int) (v[0] * r + x), (int) (v[1] * r + y) + 40);
+                else
+                    g.drawString("MAX LVL!", (int) (v[0] * r + x), (int) (v[1] * r + y) + 40);
                 double tmpX = v[0];
                 double tmpY = v[1];
                 v[0] = tmpX * Math.cos(Math.toRadians(angle)) - tmpY * Math.sin(Math.toRadians(angle));
@@ -212,12 +222,24 @@ public class GameMain extends JPanel implements Runnable, java.awt.event.MouseLi
             double tmpY = v[1];
             v[0] = tmpX * Math.cos(Math.toRadians(angle)) - tmpY * Math.sin(Math.toRadians(angle));
             v[1] = tmpX * Math.sin(Math.toRadians(angle)) + tmpY * Math.cos(Math.toRadians(angle));
-            if (Math.abs(towerX - mx) <= 20 && Math.abs(towerY - my) <= 20 && level.getCash() >= tower.getCost()) {
-                int indX = x / 50 + 1;
-                int indY = (y - 50) / 50 + 1;
-                level.setCash(level.getCash() - tower.getCost());
-                Area area = level.getGrid()[indY][indX];
-                area.setTower(new Tower(tower));
+            int indX = x / 50 + 1;
+            int indY = (y - 50) / 50 + 1;
+            Area area = level.getGrid()[indY][indX];
+            int cost = tower.getCost();
+            if (area.getTower() != null && area.getTower().getTowerType().equals(tower)) {
+                cost += area.getTower().getLvl() * 50;
+                if (area.getTower().getLvl() == 3)
+                    cost = -1;
+            }
+            if (cost > 0 && Math.abs(towerX - mx) <= 20 && Math.abs(towerY - my) <= 20 && level.getCash() >= cost) {
+                level.setCash(level.getCash() - cost);
+                if (area.getTower() == null)
+                    area.setTower(new Tower(tower));
+                else
+                    if(area.getTower().getTowerType().equals(tower))
+                        area.getTower().lvlUp();
+                    else
+                        area.setTower(new Tower(tower));
             }
         }
     }

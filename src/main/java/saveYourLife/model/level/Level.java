@@ -76,11 +76,12 @@ public class Level {
         this.squadStartTimes = new HashMap<>();
         this.bullets = new ArrayList<>();
         Rule rule = getRule(RuleType.BAN_TOWER);
-        rule.getListValue().forEach(i -> {
-            for(TowerType tower: TowerType.values())
-                if(tower.getImageNo() == i)
-                    tower.setEnabled(false);
-        });
+        if(rule!=null)
+            rule.getListValue().forEach(i -> {
+                for(TowerType tower: TowerType.values())
+                    if(tower.getImageNo() == i)
+                        tower.setEnabled(false);
+            });
     }
 
     public int getTotalWaves(){
@@ -88,7 +89,10 @@ public class Level {
     }
 
     public Rule getRule(RuleType ruleType){
-        return rules.stream().filter(r -> r.getType().equals(ruleType)).findFirst().get();
+        for(Rule rule: rules)
+            if(rule.getType().equals(ruleType))
+                return rule;
+        return null;
     }
 
     public Area[][] getGrid() {
@@ -225,11 +229,17 @@ public class Level {
     }
 
     public void draw(Graphics2D g) {
-        g.setColor(Color.ORANGE);
+        g.setFont(new Font("default", Font.BOLD, 16));
+        g.setColor(Color.WHITE);
         g.fillRect(0, 0, 800, 50);
         for (int i = 0; i < HEIGHT; i++)
-            for (int j = 0; j < WIDTH; j++)
-                grid[i + 1][j + 1].draw(g, j * (800 / WIDTH), i * (600 / (HEIGHT + 1)) + 50);
+            for (int j = 0; j < WIDTH; j++) {
+                Area area = grid[i + 1][j + 1];
+                area.draw(g, j * (800 / WIDTH), i * (600 / (HEIGHT + 1)) + 50);
+                if(area.getTower() != null){
+                    g.drawString(area.getTower().getLvl()+"", j * (800 / WIDTH)+40, i * (600 / (HEIGHT + 1)) + 50+45);
+                }
+            }
         runningEnemies.forEach(enemy -> enemy.draw(g));
         bullets.forEach(b -> b.draw(g));
     }
@@ -285,13 +295,13 @@ public class Level {
             Tower tower = area.getTower();
             if(isEnemyInTowerRange(area, e) && tower.canShoot()){
                 area.getTower().shoot();
-                bullets.add(new Bullet(area.getCenter()[0], area.getCenter()[1], tower.getTowerType().getFirePower(), tower.getTowerType().getImageNo(), e));
+                bullets.add(new Bullet(area.getCenter()[0], area.getCenter()[1], (int)(tower.getTowerType().getFirePower()*(1+(tower.getLvl()*0.5-0.5))), tower.getTowerType().getImageNo(), e));
             }
         });
     }
 
     private boolean isEnemyInTowerRange(Area area, Enemy enemy) {
-        return Math.sqrt(Math.pow((area.getCenter()[0] - enemy.getX()), 2) + Math.pow((area.getCenter()[1] - enemy.getY()), 2)) <= area.getTower().getTowerType().getRange();
+        return Math.sqrt(Math.pow((area.getCenter()[0] - enemy.getX()), 2) + Math.pow((area.getCenter()[1] - enemy.getY()), 2)) <= area.getTower().getTowerType().getRange()+(10*area.getTower().getLvl()-10);
     }
 
     private void startNewWave() {

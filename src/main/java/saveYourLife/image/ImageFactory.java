@@ -80,9 +80,9 @@ public class ImageFactory {
             BufferedImage image = null;
             try {
                 image = ImageIO.read(file);
-                if(!file.getName().split("\\.")[0].matches(".*[a-zA-Z]+.*"))
+                if(!file.getName().split("\\.")[0].matches(".*[a-zA-Z]+.*")) {
                     bullets.put(Integer.parseInt(file.getName().split("\\.")[0]), image);
-                else
+                }else
                     boomBullet = image;
             } catch (IOException e) {
                 e.printStackTrace();

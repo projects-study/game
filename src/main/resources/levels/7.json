@@ -13,8 +13,17 @@
     [500,500,536,500,500,500,501,500,535,500,500,500,501,500,536,500]
   ],
   "life":9,
-  "cash":100,
+  "cash":500,
   "rules":[
+    {
+      "type":"BAN_TOWER",
+      "listValue": [204]
+    },
+    {
+      "type":"CASH_FOR_KILL",
+      "singleValue": 1.5
+    }
+
   ],
   "waves":[
     {

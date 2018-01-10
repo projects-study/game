@@ -6,11 +6,13 @@ public class Tower {
 
     private TowerType towerType;
     private Long fireTimestamp;
+    private int lvl;
 
 
     public Tower(TowerType towerType) {
         this.towerType = towerType;
-        this.fireTimestamp = System.nanoTime();
+        this.fireTimestamp = System.nanoTime()-100000000000L;
+        this.lvl = 1;
     }
 
     public TowerType getTowerType() {
@@ -37,4 +39,11 @@ public class Tower {
         this.fireTimestamp = fireTimestamp;
     }
 
+    public int getLvl() {
+        return lvl;
+    }
+
+    public void lvlUp(){
+        lvl++;
+    }
 }
